@@ -360,9 +360,18 @@
                         <p class="text-blue-100">一度の支払いで永続利用</p>
                     </div>
                     <div class="p-8">
-                        <div class="text-center mb-6">
-                            <span class="text-5xl font-bold">¥6,980</span>
-                            <span class="text-gray-600 ml-2">（税込）</span>
+                        <div class="text-center mb-4">
+                            <div class="mb-2">
+                                <span class="text-2xl text-gray-400 line-through">¥29,800</span>
+                                <span class="text-sm text-gray-500 ml-1">（税込）</span>
+                            </div>
+                            <div class="bg-gradient-to-r from-purple-600 to-purple-700 text-white px-4 py-2 rounded-full inline-block mb-2 text-sm font-bold shadow-lg">
+                                クーポン「Iw7RR」で¥22,820 OFF
+                            </div>
+                            <div>
+                                <span class="text-5xl font-bold text-blue-600">¥6,980</span>
+                                <span class="text-gray-600 ml-2">（税込）</span>
+                            </div>
                         </div>
                         <ul class="space-y-3 mb-8">
                             <li class="flex items-start">
@@ -728,8 +737,7 @@
 
         function purchasePlan(planType) {
             if (planType === 'onetime') {
-                alert('買い切りプラン（¥6,980）のお申し込みありがとうございます。\nお支払い方法についてオープンチャットでご案内いたします。');
-                window.open('https://line.me/ti/g2/G97R3bGERdpqtKc974WpOC3wm0l_MtZ77NQ4fA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default', '_blank');
+                window.open('https://page.theapps.jp/charge/join/U8hv3G40M25l11n2', '_blank');
             } else if (planType === 'subscription') {
                 window.open('https://page.theapps.jp/paid/join/J8hv3G40M25l66v1', '_blank');
             }
