@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XToolsPro2 - アフィリエイターのためのX投稿自動化ツール</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', path='/css/styles.css') }}" rel="stylesheet">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+    <!-- Feather Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .cta-button {
+            background: linear-gradient(45deg, #3b82f6, #1d4ed8);
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            background: linear-gradient(45deg, #1d4ed8, #1e40af);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+        .pricing-highlight {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+        }
+        .comparison-card {
+            border: 2px solid #e5e7eb;
+            transition: border-color 0.3s ease;
+        }
+        .comparison-card.highlight {
+            border-color: #3b82f6;
+            background: linear-gradient(135deg, #dbeafe 0%, #f0f9ff 100%);
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- ヘッダー -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-gray-900">XToolsPro2</h1>
+                    <span class="ml-3 px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">v2.5</span>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#features" class="text-gray-600 hover:text-blue-600 transition-colors">機能</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-blue-600 transition-colors">料金</a>
+                    <a href="#comparison" class="text-gray-600 hover:text-blue-600 transition-colors">他ツール比較</a>
+                    <a href="#demo" class="text-gray-600 hover:text-blue-600 transition-colors">デモ</a>
+                </nav>
+                <button class="md:hidden">
+                    <i data-feather="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="hero-gradient py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+                    API不要！<br>
+                    <span class="text-yellow-300">30秒で完了</span><br>
+                    X投稿自動化ツール
+                </h1>
+                <p class="text-xl md:text-2xl text-blue-100 mb-8">
+                    アフィリエイターのための最強投稿自動化システム<br>
+                    複雑なAPI設定は一切不要、IDとパスワードだけで即スタート
+                </p>
+                
+                <!-- 実績数値 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                    <div class="bg-white bg-opacity-20 rounded-lg p-6">
+                        <div class="text-3xl font-bold text-yellow-300">400回/日</div>
+                        <div class="text-blue-100">投稿可能数</div>
+                    </div>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-6">
+                        <div class="text-3xl font-bold text-yellow-300">30秒</div>
+                        <div class="text-blue-100">設定完了時間</div>
+                    </div>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-6">
+                        <div class="text-3xl font-bold text-yellow-300">0円</div>
+                        <div class="text-blue-100">API利用料</div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="cta-button text-white px-8 py-4 rounded-lg text-lg font-semibold pulse-animation">
+                        今すぐ30秒で開始する
+                    </button>
+                    <button class="bg-white bg-opacity-20 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-opacity-30 transition-all">
+                        <i data-feather="play" class="inline mr-2 w-5 h-5"></i>
+                        デモ動画を見る
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 問題提起セクション -->
+    <section class="py-16 bg-red-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-red-800 mb-4">
+                    こんな悩みありませんか？
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-red-500">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="x-circle" class="w-8 h-8 text-red-500 mr-3"></i>
+                        <h3 class="text-lg font-semibold text-gray-900">API設定が複雑すぎる</h3>
+                    </div>
+                    <p class="text-gray-600">APIキーの取得、開発者登録、複雑な設定... 始める前に挫折してしまう</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-red-500">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="dollar-sign" class="w-8 h-8 text-red-500 mr-3"></i>
+                        <h3 class="text-lg font-semibold text-gray-900">API料金が高すぎる</h3>
+                    </div>
+                    <p class="text-gray-600">X API Basicプランでも月200ドル... アフィリエイト収益を圧迫する高額料金</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-red-500">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="file-minus" class="w-8 h-8 text-red-500 mr-3"></i>
+                        <h3 class="text-lg font-semibold text-gray-900">投稿制限が厳しい</h3>
+                    </div>
+                    <p class="text-gray-600">Free APIは月11回まで... アクティブなアフィリエイターには全く不十分</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-red-500">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="layers" class="w-8 h-8 text-red-500 mr-3"></i>
+                        <h3 class="text-lg font-semibold text-gray-900">複数アカウント管理が困難</h3>
+                    </div>
+                    <p class="text-gray-600">アカウント数だけAPIキーが必要... スプレッドシートの管理も煩雑</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-red-500">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="clock" class="w-8 h-8 text-red-500 mr-3"></i>
+                        <h3 class="text-lg font-semibold text-gray-900">設定に時間がかかりすぎ</h3>
+                    </div>
+                    <p class="text-gray-600">APIの設定だけで数時間... 本来のアフィリエイト作業に集中できない</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-red-500">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="alert-triangle" class="w-8 h-8 text-red-500 mr-3"></i>
+                        <h3 class="text-lg font-semibold text-gray-900">エラーが頻発</h3>
+                    </div>
+                    <p class="text-gray-600">API制限、認証エラー、接続不安定... 安定した投稿ができない</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 解決策セクション -->
+    <section class="py-16 bg-green-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-green-800 mb-4">
+                XToolsPro2なら、すべて解決！
+            </h2>
+            <p class="text-xl text-green-700 mb-12">
+                APIは一切不要、X のID・パスワードだけで今すぐ始められます
+            </p>
+            
+            <div class="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="text-left">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                            <span class="text-green-600">30秒</span>で設定完了！
+                        </h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-center">
+                                <i data-feather="check" class="w-5 h-5 text-green-500 mr-3"></i>
+                                API設定不要
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="w-5 h-5 text-green-500 mr-3"></i>
+                                開発者登録不要
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="w-5 h-5 text-green-500 mr-3"></i>
+                                複雑な設定不要
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="w-5 h-5 text-green-500 mr-3"></i>
+                                XのID・パスワードのみ
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-blue-100 rounded-lg p-6">
+                            <h4 class="text-lg font-semibold text-blue-800 mb-2">設定手順</h4>
+                            <div class="text-left space-y-2 text-sm text-blue-700">
+                                <div>1. アカウント名を入力</div>
+                                <div>2. X ID を入力</div>
+                                <div>3. パスワードを入力</div>
+                                <div class="font-bold text-blue-800">完了！たったこれだけ</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 機能セクション -->
+    <section id="features" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                    アフィリエイターに最適化された機能
+                </h2>
+                <p class="text-xl text-gray-600">
+                    収益最大化のために設計された強力な自動化機能
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-card bg-white p-6 rounded-lg shadow-lg border">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <i data-feather="zap" class="w-6 h-6 text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">大量投稿可能</h3>
+                    <p class="text-gray-600 mb-4">1日400回まで投稿可能。API制限に縛られることなく、アクティブな投稿戦略を実行できます。</p>
+                    <div class="text-sm text-blue-600 font-medium">API Free版：月11回 → XToolsPro2：1日400回</div>
+                </div>
+                
+                <div class="feature-card bg-white p-6 rounded-lg shadow-lg border">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <i data-feather="users" class="w-6 h-6 text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">複数アカウント一元管理</h3>
+                    <p class="text-gray-600 mb-4">無制限のアカウント登録。スプレッドシート不要で、すべてのアカウントを一つの画面で管理。</p>
+                    <div class="text-sm text-green-600 font-medium">スプレッドシート管理から解放</div>
+                </div>
+                
+                <div class="feature-card bg-white p-6 rounded-lg shadow-lg border">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <i data-feather="clock" class="w-6 h-6 text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">柔軟なスケジューリング</h3>
+                    <p class="text-gray-600 mb-4">定期投稿、時間指定投稿、繰り返し投稿に対応。アフィリエイト戦略に合わせた最適なタイミングで投稿。</p>
+                    <div class="text-sm text-purple-600 font-medium">1分〜24時間間隔で設定可能</div>
+                </div>
+                
+                <div class="feature-card bg-white p-6 rounded-lg shadow-lg border">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                        <i data-feather="image" class="w-6 h-6 text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">画像付き投稿対応</h3>
+                    <p class="text-gray-600 mb-4">最大4枚まで画像添付可能。商品画像やキャプチャを使ったアフィリエイト投稿で訴求力アップ。</p>
+                    <div class="text-sm text-red-600 font-medium">JPG, PNG, GIF, WebP対応</div>
+                </div>
+                
+                <div class="feature-card bg-white p-6 rounded-lg shadow-lg border">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                        <i data-feather="play" class="w-6 h-6 text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">即座投稿機能</h3>
+                    <p class="text-gray-600 mb-4">スケジュールを待たずに「今すぐ投稿」ボタンでリアルタイム投稿。トレンドに素早く対応。</p>
+                    <div class="text-sm text-yellow-600 font-medium">タイムリーな情報発信が可能</div>
+                </div>
+                
+                <div class="feature-card bg-white p-6 rounded-lg shadow-lg border">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                        <i data-feather="shield" class="w-6 h-6 text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">安全な認証システム</h3>
+                    <p class="text-gray-600 mb-4">デバイス固有の暗号化認証でセキュリティを確保。第三者による不正利用を防止。</p>
+                    <div class="text-sm text-indigo-600 font-medium">Fernet暗号化採用</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 他ツール比較セクション -->
+    <section id="comparison" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                    他ツールとの圧倒的な違い
+                </h2>
+                <p class="text-xl text-gray-600">
+                    なぜアフィリエイターがXToolsPro2を選ぶのか
+                </p>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+                    <thead class="bg-gray-800 text-white">
+                        <tr>
+                            <th class="px-6 py-4 text-left">項目</th>
+                            <th class="px-6 py-4 text-center bg-blue-600">
+                                <div class="flex flex-col items-center">
+                                    <span class="font-bold">XToolsPro2</span>
+                                    <span class="text-xs bg-yellow-400 text-gray-800 px-2 py-1 rounded mt-1">推奨</span>
+                                </div>
+                            </th>
+                            <th class="px-6 py-4 text-center">X API Basic</th>
+                            <th class="px-6 py-4 text-center">X API Free</th>
+                            <th class="px-6 py-4 text-center">他社ツール</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 font-medium text-gray-900">月額料金</td>
+                            <td class="px-6 py-4 text-center bg-blue-50">
+                                <span class="text-2xl font-bold text-blue-600">買い切り</span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-xl font-bold text-red-600">$200/月</span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-lg text-green-600">無料</span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-lg text-gray-600">¥3,000〜</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium text-gray-900">投稿制限（月）</td>
+                            <td class="px-6 py-4 text-center bg-blue-50">
+                                <span class="text-xl font-bold text-blue-600">12,000回</span>
+                                <div class="text-xs text-gray-500">(400回/日)</div>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-lg text-gray-600">制限なし*</span>
+                                <div class="text-xs text-gray-500">*高額料金</div>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-lg font-bold text-red-600">11回</span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-lg text-gray-600">100〜1000回</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium text-gray-900">設定の簡単さ</td>
+                            <td class="px-6 py-4 text-center bg-blue-50">
+                                <span class="text-lg font-bold text-blue-600">30秒</span>
+                                <div class="text-xs text-gray-500">ID・PW入力のみ</div>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-lg text-red-600">数時間</span>
+                                <div class="text-xs text-gray-500">API設定必要</div>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-lg text-red-600">数時間</span>
+                                <div class="text-xs text-gray-500">API設定必要</div>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-lg text-yellow-600">30分〜</span>
+                                <div class="text-xs text-gray-500">API設定必要</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium text-gray-900">複数アカウント</td>
+                            <td class="px-6 py-4 text-center bg-blue-50">
+                                <span class="text-lg font-bold text-blue-600">無制限</span>
+                                <div class="text-xs text-gray-500">一元管理</div>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-lg text-red-600">困難</span>
+                                <div class="text-xs text-gray-500">各々API必要</div>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-lg text-red-600">困難</span>
+                                <div class="text-xs text-gray-500">各々API必要</div>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-lg text-yellow-600">制限あり</span>
+                                <div class="text-xs text-gray-500">追加料金</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium text-gray-900">画像投稿</td>
+                            <td class="px-6 py-4 text-center bg-blue-50">
+                                <span class="text-lg font-bold text-blue-600">4枚まで</span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-lg text-blue-600">対応</span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-lg text-red-600">制限あり</span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-lg text-yellow-600">一部対応</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium text-gray-900">安定性</td>
+                            <td class="px-6 py-4 text-center bg-blue-50">
+                                <span class="text-lg font-bold text-blue-600">高</span>
+                                <div class="text-xs text-gray-500">API制限なし</div>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-lg text-yellow-600">中</span>
+                                <div class="text-xs text-gray-500">API制限あり</div>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-lg text-red-600">低</span>
+                                <div class="text-xs text-gray-500">制限厳しい</div>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-lg text-yellow-600">中</span>
+                                <div class="text-xs text-gray-500">API依存</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="text-center mt-8">
+                <div class="bg-yellow-100 border border-yellow-400 rounded-lg p-4 inline-block">
+                    <p class="text-yellow-800 font-medium">
+                        <i data-feather="alert-triangle" class="inline w-5 h-5 mr-2"></i>
+                        X API Basicプランの$200/月 = 年間28万円の節約！
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 料金セクション -->
+    <section id="pricing" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                    シンプルな料金体系
+                </h2>
+                <p class="text-xl text-gray-600">
+                    月額料金やAPI使用料は一切不要
+                </p>
+            </div>
+            
+            <div class="max-w-lg mx-auto">
+                <div class="pricing-highlight rounded-lg p-8 text-center text-white shadow-xl">
+                    <div class="mb-4">
+                        <span class="text-sm font-medium">特別価格</span>
+                    </div>
+                    <div class="mb-6">
+                        <span class="text-5xl font-bold">買い切り</span>
+                    </div>
+                    <div class="mb-8">
+                        <p class="text-xl">月額料金・API料金 一切不要</p>
+                        <p class="text-lg opacity-90">一度購入すれば永続利用可能</p>
+                    </div>
+                    
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-center justify-center">
+                            <i data-feather="check" class="w-5 h-5 mr-3"></i>
+                            <span>1日400回投稿可能</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <i data-feather="check" class="w-5 h-5 mr-3"></i>
+                            <span>無制限アカウント管理</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <i data-feather="check" class="w-5 h-5 mr-3"></i>
+                            <span>画像投稿対応（4枚まで）</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <i data-feather="check" class="w-5 h-5 mr-3"></i>
+                            <span>永続アップデート</span>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <i data-feather="check" class="w-5 h-5 mr-3"></i>
+                            <span>完全サポート付き</span>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full bg-white text-gray-900 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-colors">
+                        今すぐ購入する
+                    </button>
+                    
+                    <div class="mt-4 text-sm opacity-90">
+                        ※ X API Basicプラン（月$200）と比較して年間28万円節約
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <div class="bg-gray-100 rounded-lg p-6 max-w-2xl mx-auto">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">コスト比較（年間）</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="text-center">
+                            <div class="text-xl font-bold text-blue-600">XToolsPro2</div>
+                            <div class="text-3xl font-bold text-blue-600">買い切り</div>
+                            <div class="text-sm text-gray-600">追加費用なし</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xl font-bold text-red-600">X API Basic</div>
+                            <div class="text-3xl font-bold text-red-600">28万円</div>
+                            <div class="text-sm text-gray-600">$200/月 × 12ヶ月</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xl font-bold text-green-600">節約額</div>
+                            <div class="text-3xl font-bold text-green-600">28万円</div>
+                            <div class="text-sm text-gray-600">毎年継続</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- デモセクション -->
+    <section id="demo" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                    30秒設定デモ
+                </h2>
+                <p class="text-xl text-gray-600">
+                    実際の設定画面をご覧ください
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-lg shadow-xl p-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-6">設定手順</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4">1</div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900">アカウント名を入力</h4>
+                                        <p class="text-gray-600 text-sm">管理用の名前を付けます（例：メインアカウント）</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4">2</div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900">X ID を入力</h4>
+                                        <p class="text-gray-600 text-sm">@から始まるあなたのX ID</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4">3</div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900">パスワードを入力</h4>
+                                        <p class="text-gray-600 text-sm">Xのログインパスワード</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4">✓</div>
+                                    <div>
+                                        <h4 class="font-semibold text-green-700">設定完了！</h4>
+                                        <p class="text-green-600 text-sm">すぐに投稿の自動化が開始できます</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-100 rounded-lg p-6">
+                            <div class="bg-white rounded shadow p-4 mb-4">
+                                <h4 class="font-medium text-gray-700 mb-2">デモ動画</h4>
+                                <div class="aspect-video bg-gray-200 rounded flex items-center justify-center">
+                                    <button class="bg-blue-600 text-white px-6 py-3 rounded-lg flex items-center hover:bg-blue-700 transition-colors">
+                                        <i data-feather="play" class="w-5 h-5 mr-2"></i>
+                                        30秒設定動画を見る
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <div class="text-sm text-gray-600 mb-2">実際の設定時間</div>
+                                <div class="text-3xl font-bold text-blue-600">00:30</div>
+                                <div class="text-sm text-gray-500">実測値</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- お客様の声セクション -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                    アフィリエイターの声
+                </h2>
+                <p class="text-xl text-gray-600">
+                    実際にXToolsPro2を使っているアフィリエイターの感想
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <div class="mb-4">
+                        <div class="flex text-yellow-400 mb-2">
+                            <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                            <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                            <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                            <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                            <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        </div>
+                        <p class="text-gray-700">"API設定で挫折していましたが、XToolsPro2は本当に30秒で設定完了！月200ドルのAPI料金からも解放されて、浮いたお金で広告費に回せています。"</p>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mr-3">A</div>
+                        <div>
+                            <div class="font-semibold text-gray-900">Aさん</div>
+                            <div class="text-sm text-gray-600">物販アフィリエイター</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <div class="mb-4">
+                        <div class="flex text-yellow-400 mb-2">
+                            <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                            <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                            <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                            <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                            <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        </div>
+                        <p class="text-gray-700">"複数アカウントの管理が一つの画面でできるのが最高！スプレッドシートでの管理から解放されて、効率が3倍アップしました。"</p>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white font-bold mr-3">B</div>
+                        <div>
+                            <div class="font-semibold text-gray-900">Bさん</div>
+                            <div class="text-sm text-gray-600">情報商材アフィリエイター</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <div class="mb-4">
+                        <div class="flex text-yellow-400 mb-2">
+                            <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                            <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                            <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                            <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                            <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        </div>
+                        <p class="text-gray-700">"1日400回の投稿が可能なので、複数のキャンペーンを同時進行できます。Free APIの月11回制限はアフィリエイターには話になりませんでした。"</p>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold mr-3">C</div>
+                        <div>
+                            <div class="font-semibold text-gray-900">Cさん</div>
+                            <div class="text-sm text-gray-600">ASPアフィリエイター</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ セクション -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                    よくある質問
+                </h2>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="bg-white rounded-lg shadow">
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">本当にAPI設定は不要ですか？</h3>
+                        <p class="text-gray-600">はい、完全に不要です。XのID・パスワードのみで動作するため、複雑なAPI申請や開発者登録は一切必要ありません。</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow">
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">アカウントが凍結されるリスクはありませんか？</h3>
+                        <p class="text-gray-600">XToolsPro2は通常のブラウザ操作を模倣するため、APIを使用しない一般的な投稿と同じです。適切な投稿間隔を設定することで安全に利用できます。</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow">
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">複数のPCで使用できますか？</h3>
+                        <p class="text-gray-600">セキュリティ上、1ライセンスにつき1台のPCでの利用となります。別のPCで使用したい場合は管理者による認証変更が必要です。</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow">
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">サポートはありますか？</h3>
+                        <p class="text-gray-600">はい、購入後の設定サポートから運用サポートまで完全対応いたします。メールでのサポートを提供しています。</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow">
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">アップデートは有料ですか？</h3>
+                        <p class="text-gray-600">いいえ、一度購入いただければ永続的に無料でアップデートを提供します。新機能追加やバグ修正も含まれます。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="py-16 bg-blue-600">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                今すぐ始めて、<br>
+                アフィリエイト収益を最大化しませんか？
+            </h2>
+            <p class="text-xl text-blue-100 mb-8">
+                設定はたった30秒、月額料金やAPI料金は一切不要
+            </p>
+            
+            <div class="bg-white bg-opacity-10 rounded-lg p-6 mb-8 inline-block">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-white">
+                    <div>
+                        <div class="text-2xl font-bold text-yellow-300">30秒</div>
+                        <div class="text-blue-100">設定完了</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold text-yellow-300">400回/日</div>
+                        <div class="text-blue-100">投稿可能</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold text-yellow-300">28万円</div>
+                        <div class="text-blue-100">年間節約額</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg text-lg font-bold hover:bg-yellow-300 transition-all pulse-animation">
+                    今すぐ購入して30秒で開始
+                </button>
+                <button class="bg-white bg-opacity-20 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-opacity-30 transition-all">
+                    <i data-feather="play" class="inline mr-2 w-5 h-5"></i>
+                    デモ動画をもう一度見る
+                </button>
+            </div>
+            
+            <div class="mt-6 text-blue-100 text-sm">
+                ※ 買い切り価格、月額料金・API料金は一切発生しません
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">XToolsPro2</h3>
+                    <p class="text-gray-300">アフィリエイターのためのX投稿自動化ツール</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">サポート</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">お問い合わせ</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">マニュアル</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">アップデート情報</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">製品情報</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#features" class="hover:text-white transition-colors">機能一覧</a></li>
+                        <li><a href="#pricing" class="hover:text-white transition-colors">料金</a></li>
+                        <li><a href="#comparison" class="hover:text-white transition-colors">他ツール比較</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 XToolsPro2. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Feather icons
+        feather.replace();
+        
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // モバイルメニューの動作（必要に応じて実装）
+    </script>
+</body>
+</html>

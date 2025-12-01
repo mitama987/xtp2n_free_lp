@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XTP2 NoAPI - 有料版へアップグレード</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Feather Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body>
+    <!-- ヒーローセクション -->
+    <div class="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-20">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h1 class="text-5xl font-bold mb-6">
+                X運用を完全自動化！<br>
+                ランダム投稿で24時間365日稼働
+            </h1>
+            <p class="text-xl mb-8 opacity-95">
+                AIが自動でコンテンツ生成、あなたは結果を見るだけ
+            </p>
+            <div class="flex justify-center gap-4">
+                <button onclick="scrollToSection('pricing')" class="bg-white text-purple-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition">
+                    料金プランを見る
+                </button>
+                <button onclick="scrollToSection('features')" class="border-2 border-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-purple-600 transition">
+                    機能を詳しく見る
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 機能紹介セクション -->
+    <div id="features" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">ランダム投稿の強力な機能</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- AIモード -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition">
+                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="cpu" class="text-purple-600" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">AIモード</h3>
+                    <p class="text-gray-600 mb-4">
+                        GPT-4oがあなたの代わりに魅力的な投稿を自動生成。テーマを設定するだけで、10個の投稿案を即座に作成します。
+                    </p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>✅ ターゲットに合わせた文章調整</li>
+                        <li>✅ ハッシュタグ自動生成</li>
+                        <li>✅ 感情トーンのカスタマイズ</li>
+                    </ul>
+                </div>
+
+                <!-- ゆらぎ機能 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="activity" class="text-green-600" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">ゆらぎ機能</h3>
+                    <p class="text-gray-600 mb-4">
+                        人間らしい自然な投稿パターンを実現。機械的な定期投稿とは違い、アルゴリズムに検知されにくい投稿を実現します。
+                    </p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>✅ ランダムな投稿間隔</li>
+                        <li>✅ 時間帯制限設定</li>
+                        <li>✅ 重複防止アルゴリズム</li>
+                    </ul>
+                </div>
+
+                <!-- 画像プール -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="image" class="text-blue-600" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">画像プール</h3>
+                    <p class="text-gray-600 mb-4">
+                        大量の画像を効率的に管理。投稿ごとに自動で画像を選択し、視覚的に魅力的な投稿を作成します。
+                    </p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>✅ ドラッグ&ドロップアップロード</li>
+                        <li>✅ 自動画像選択</li>
+                        <li>✅ グリッド表示管理</li>
+                    </ul>
+                </div>
+
+                <!-- スプレッドシート取込 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition">
+                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="file-text" class="text-yellow-600" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">スプレッドシート取込</h3>
+                    <p class="text-gray-600 mb-4">
+                        既存のコンテンツを一括インポート。Excelやスプレッドシートから簡単にデータを取り込めます。
+                    </p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>✅ 一括インポート</li>
+                        <li>✅ 複数選択対応</li>
+                        <li>✅ リアルタイムプレビュー</li>
+                    </ul>
+                </div>
+
+                <!-- 投稿キュー管理 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition">
+                    <div class="bg-pink-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="list" class="text-pink-600" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">投稿キュー管理</h3>
+                    <p class="text-gray-600 mb-4">
+                        大量の投稿コンテンツを効率的に管理。インライン編集で素早くコンテンツを修正できます。
+                    </p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>✅ 一覧表示で全体把握</li>
+                        <li>✅ インライン編集</li>
+                        <li>✅ 複数画像対応</li>
+                    </ul>
+                </div>
+
+                <!-- 24時間365日稼働 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="clock" class="text-red-600" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">24時間365日稼働</h3>
+                    <p class="text-gray-600 mb-4">
+                        一度設定すれば、あとは自動で投稿し続けます。休日も深夜も、あなたの代わりに働き続けます。
+                    </p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>✅ 完全自動化</li>
+                        <li>✅ サイクル管理</li>
+                        <li>✅ 継続的な投稿実行</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- スクリーンショットセクション -->
+    <div class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">実際の画面をご覧ください</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 投稿キュー画面 -->
+                <div class="rounded-xl overflow-hidden shadow-2xl">
+                    <div class="bg-gray-800 text-white p-4 flex items-center gap-2">
+                        <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                        <span class="ml-4 text-sm">投稿キュー管理</span>
+                    </div>
+                    <div class="bg-gray-100 p-6">
+                        <div class="bg-white rounded-lg shadow p-4">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="font-bold">ランダム投稿キュー</h3>
+                                <button class="bg-green-600 text-white px-4 py-2 rounded text-sm">投稿開始</button>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="border rounded p-3 flex items-center gap-3">
+                                    <span class="text-gray-500">1</span>
+                                    <div class="flex-1">
+                                        <p class="text-sm">新機能リリースのお知らせ！✨ 本日より...</p>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <div class="w-12 h-12 bg-gray-200 rounded"></div>
+                                        <div class="w-12 h-12 bg-gray-200 rounded"></div>
+                                    </div>
+                                </div>
+                                <div class="border rounded p-3 flex items-center gap-3">
+                                    <span class="text-gray-500">2</span>
+                                    <div class="flex-1">
+                                        <p class="text-sm">SNS運用のコツを大公開！📱 フォロワー...</p>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <div class="w-12 h-12 bg-gray-200 rounded"></div>
+                                    </div>
+                                </div>
+                                <div class="border rounded p-3 flex items-center gap-3">
+                                    <span class="text-gray-500">3</span>
+                                    <div class="flex-1">
+                                        <p class="text-sm">週末限定キャンペーン開催中！🎉 今なら...</p>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <div class="w-12 h-12 bg-gray-200 rounded"></div>
+                                        <div class="w-12 h-12 bg-gray-200 rounded"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AIモード画面 -->
+                <div class="rounded-xl overflow-hidden shadow-2xl">
+                    <div class="bg-gray-800 text-white p-4 flex items-center gap-2">
+                        <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                        <span class="ml-4 text-sm">AIモード</span>
+                    </div>
+                    <div class="bg-gray-100 p-6">
+                        <div class="bg-white rounded-lg shadow p-4">
+                            <div class="mb-4">
+                                <h3 class="font-bold mb-3">AI投稿生成</h3>
+                                <div class="space-y-3">
+                                    <div class="bg-blue-50 p-3 rounded">
+                                        <p class="text-sm text-blue-800">AI: 投稿のテーマは何ですか？</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-3 rounded">
+                                        <p class="text-sm">ユーザー: SNS運用の効率化について</p>
+                                    </div>
+                                    <div class="bg-blue-50 p-3 rounded">
+                                        <p class="text-sm text-blue-800">AI: ターゲット層を教えてください。</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-3 rounded">
+                                        <p class="text-sm">ユーザー: 中小企業の経営者</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="w-full bg-purple-600 text-white py-3 rounded font-bold">
+                                10個の投稿を生成
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 画像プール画面 -->
+                <div class="rounded-xl overflow-hidden shadow-2xl">
+                    <div class="bg-gray-800 text-white p-4 flex items-center gap-2">
+                        <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                        <span class="ml-4 text-sm">画像プール</span>
+                    </div>
+                    <div class="bg-gray-100 p-6">
+                        <div class="bg-white rounded-lg shadow p-4">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="font-bold">共有画像リソース</h3>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded text-sm">画像追加</button>
+                            </div>
+                            <div class="grid grid-cols-4 gap-3">
+                                <div class="aspect-square bg-gray-200 rounded"></div>
+                                <div class="aspect-square bg-gray-200 rounded"></div>
+                                <div class="aspect-square bg-gray-200 rounded"></div>
+                                <div class="aspect-square bg-gray-200 rounded"></div>
+                                <div class="aspect-square bg-gray-200 rounded"></div>
+                                <div class="aspect-square bg-gray-200 rounded"></div>
+                                <div class="aspect-square bg-gray-200 rounded"></div>
+                                <div class="aspect-square bg-gray-200 rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 設定画面 -->
+                <div class="rounded-xl overflow-hidden shadow-2xl">
+                    <div class="bg-gray-800 text-white p-4 flex items-center gap-2">
+                        <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                        <span class="ml-4 text-sm">ランダム投稿設定</span>
+                    </div>
+                    <div class="bg-gray-100 p-6">
+                        <div class="bg-white rounded-lg shadow p-4">
+                            <h3 class="font-bold mb-4">投稿設定</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="text-sm text-gray-600">基本投稿間隔</label>
+                                    <input type="number" value="120" class="w-full border rounded px-3 py-2">
+                                </div>
+                                <div>
+                                    <label class="text-sm text-gray-600">ゆらぎ（分）</label>
+                                    <input type="number" value="30" class="w-full border rounded px-3 py-2">
+                                </div>
+                                <div>
+                                    <label class="text-sm text-gray-600">投稿時間帯</label>
+                                    <div class="flex gap-2">
+                                        <input type="time" value="09:00" class="border rounded px-3 py-2">
+                                        <span>〜</span>
+                                        <input type="time" value="22:00" class="border rounded px-3 py-2">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 動画デモセクション -->
+    <div class="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">実際の操作を動画でご覧ください</h2>
+            <p class="text-xl text-center text-gray-600 mb-12">ランダム投稿、AIツイート生成、スプレッドシート取込の実演</p>
+
+            <!-- YouTube動画埋め込み -->
+            <div class="max-w-4xl mx-auto mb-12">
+                <div class="relative rounded-xl overflow-hidden shadow-2xl bg-black" style="padding-bottom: 56.25%; height: 0;">
+                    <button
+                        type="button"
+                        class="youtube-lite group absolute inset-0 w-full h-full flex items-center justify-center focus:outline-none focus-visible:ring-4 focus-visible:ring-white"
+                        data-video-id="xwOo6I2L2A8"
+                        aria-label="XTP2 NoAPI - ランダム投稿機能デモを再生"
+                    >
+                        <img
+                            src="https://img.youtube.com/vi/xwOo6I2L2A8/hqdefault.jpg"
+                            alt="XTP2 NoAPI - ランダム投稿機能デモのプレビュー画像"
+                            class="absolute inset-0 w-full h-full object-cover"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                        <span class="absolute inset-0 bg-black bg-opacity-40 transition group-hover:bg-opacity-25"></span>
+                        <span class="relative inline-flex items-center justify-center bg-red-600 text-white rounded-full w-20 h-20 group-hover:bg-red-500 transition-transform transform group-hover:scale-105 shadow-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 ml-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </span>
+                        <span class="sr-only">動画を再生</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 動画のハイライト -->
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 text-center">動画で紹介している機能</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="bg-purple-100 w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <i data-feather="shuffle" class="text-purple-600" style="width: 32px; height: 32px;"></i>
+                            </div>
+                            <h4 class="font-bold mb-2">ランダム投稿</h4>
+                            <p class="text-sm text-gray-600">
+                                投稿キューから自動で選択し、人間らしい間隔で投稿
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-blue-100 w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <i data-feather="cpu" class="text-blue-600" style="width: 32px; height: 32px;"></i>
+                            </div>
+                            <h4 class="font-bold mb-2">AIツイート生成</h4>
+                            <p class="text-sm text-gray-600">
+                                GPT-4oが質問に答えながら最適な投稿を10個生成
+                            </p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-green-100 w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <i data-feather="upload" class="text-green-600" style="width: 32px; height: 32px;"></i>
+                            </div>
+                            <h4 class="font-bold mb-2">スプレッドシート取込</h4>
+                            <p class="text-sm text-gray-600">
+                                既存の投稿データを一括でインポート可能
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 価格プランセクション -->
+    <div id="pricing" class="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">選べる2つの料金プラン</h2>
+            <p class="text-xl text-center text-gray-600 mb-16">あなたのニーズに合わせて最適なプランをお選びください</p>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- 買い切りプラン -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition">
+                    <div class="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-6">
+                        <h3 class="text-2xl font-bold mb-2">買い切りプラン</h3>
+                        <p class="text-blue-100">一度の支払いで永続利用</p>
+                    </div>
+                    <div class="p-8">
+                        <div class="text-center mb-4">
+                            <div class="mb-2">
+                                <span class="text-2xl text-gray-400 line-through">¥29,800</span>
+                                <span class="text-sm text-gray-500 ml-1">（税込）</span>
+                            </div>
+                            <div class="bg-gradient-to-r from-purple-600 to-purple-700 text-white px-4 py-2 rounded-full inline-block mb-2 text-sm font-bold shadow-lg">
+                                クーポン「Iw7RR」で¥22,820 OFF
+                            </div>
+                            <div>
+                                <span class="text-5xl font-bold text-blue-600">¥6,980</span>
+                                <span class="text-gray-600 ml-2">（税込）</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="text-green-500 mr-3 flex-shrink-0" style="width: 20px; height: 20px;"></i>
+                                <span>永続ライセンス</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="text-green-500 mr-3 flex-shrink-0" style="width: 20px; height: 20px;"></i>
+                                <span>全機能利用可能</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="text-green-500 mr-3 flex-shrink-0" style="width: 20px; height: 20px;"></i>
+                                <span>メジャーアップデート無料</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="text-green-500 mr-3 flex-shrink-0" style="width: 20px; height: 20px;"></i>
+                                <span>メールサポート付き</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="text-green-500 mr-3 flex-shrink-0" style="width: 20px; height: 20px;"></i>
+                                <span>30日間返金保証</span>
+                            </li>
+                        </ul>
+                        <button onclick="purchasePlan('onetime')" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-bold text-lg transition">
+                            今すぐ購入
+                        </button>
+                    </div>
+                </div>
+
+                <!-- サブスクプラン -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition relative">
+                    <div class="absolute top-0 right-0 bg-red-500 text-white px-4 py-1 rounded-bl-lg text-sm font-bold">
+                        人気No.1
+                    </div>
+                    <div class="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-6">
+                        <h3 class="text-2xl font-bold mb-2">サブスクプラン</h3>
+                        <p class="text-purple-100">常に最新版を利用可能</p>
+                    </div>
+                    <div class="p-8">
+                        <div class="text-center mb-4">
+                            <div class="mb-2">
+                                <span class="text-2xl text-gray-400 line-through">¥1,980</span>
+                                <span class="text-sm text-gray-500 ml-1">/ 月</span>
+                            </div>
+                            <div class="bg-gradient-to-r from-purple-600 to-purple-700 text-white px-4 py-2 rounded-full inline-block mb-2 text-sm font-bold shadow-lg">
+                                クーポン「TANTv」で永続1,000円OFF
+                            </div>
+                            <div>
+                                <span class="text-5xl font-bold text-purple-600">¥980</span>
+                                <span class="text-gray-600 ml-2">/ 月（税込）</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-3 mb-6">
+                            <p class="text-sm text-yellow-800 font-semibold text-center">
+                                🎁 初月無料 + クーポン適用でずっと¥980/月
+                            </p>
+                            <p class="text-xs text-yellow-700 text-center mt-1">
+                                2ヶ月目以降もクーポン価格が継続
+                            </p>
+                        </div>
+
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="text-green-500 mr-3 flex-shrink-0" style="width: 20px; height: 20px;"></i>
+                                <span><strong>初月完全無料</strong></span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="text-green-500 mr-3 flex-shrink-0" style="width: 20px; height: 20px;"></i>
+                                <span>いつでも解約可能</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="text-green-500 mr-3 flex-shrink-0" style="width: 20px; height: 20px;"></i>
+                                <span>全機能利用可能</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="text-green-500 mr-3 flex-shrink-0" style="width: 20px; height: 20px;"></i>
+                                <span>最新機能を即座に利用</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="text-green-500 mr-3 flex-shrink-0" style="width: 20px; height: 20px;"></i>
+                                <span>優先サポート</span>
+                            </li>
+                        </ul>
+                        <button onclick="purchasePlan('subscription')" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-4 rounded-lg font-bold text-lg transition">
+                            初月無料で試す
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-gray-600 mb-4">ご不明な点がございましたら、お気軽にお問い合わせください</p>
+                <a href="https://line.me/ti/g2/G97R3bGERdpqtKc974WpOC3wm0l_MtZ77NQ4fA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" class="text-purple-600 hover:text-purple-700 font-semibold">
+                    オープンチャットで問い合わせ
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 実績・成果セクション -->
+    <div class="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">驚きの実績</h2>
+            <p class="text-xl text-center text-gray-600 mb-16">XToolsPro2_NoAPIランダム機能+AIツイート生成を使って、たった1日で成約</p>
+
+            <!-- メインの成果カード -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden mb-12">
+                <div class="bg-gradient-to-r from-yellow-400 to-orange-500 p-1">
+                    <div class="bg-white p-8">
+                        <!-- サブアカウントでの成果 -->
+                        <div class="mb-8">
+                            <h3 class="text-2xl font-bold text-center mb-4">
+                                フォロワー30人程度のサブ垢でも結果が出せました
+                            </h3>
+                            <img src="https://assets.st-note.com/img/1757495474-PkS4BO0R7mXDZ8Nn9KGATWug.png"
+                                 alt="フォロワー30人のサブアカウントでの実績"
+                                 class="w-full max-w-2xl mx-auto rounded-xl shadow-lg mb-4"
+                                 loading="lazy">
+                            <p class="text-center text-gray-600">
+                                フォロワー数が少なくても、適切な自動化で成果は出せることを証明
+                            </p>
+                        </div>
+
+
+                        <!-- 具体的な成果画像 -->
+                        <div class="mb-8">
+                            <h4 class="text-2xl font-bold text-center mb-6">
+                                いいね1件、フォロー1件、問い合わせ1件、そして成約まで到達！
+                            </h4>
+                            <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 mb-6">
+                                <div class="grid md:grid-cols-4 gap-4 text-center">
+                                    <div>
+                                        <div class="text-3xl mb-2">❤️</div>
+                                        <div class="text-xl font-bold">いいね獲得</div>
+                                        <div class="text-gray-600">投稿への反応</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-3xl mb-2">👤</div>
+                                        <div class="text-xl font-bold">フォロー獲得</div>
+                                        <div class="text-gray-600">新規フォロワー</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-3xl mb-2">📧</div>
+                                        <div class="text-xl font-bold">問い合わせ</div>
+                                        <div class="text-gray-600">見込み客から</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-3xl mb-2">🎯</div>
+                                        <div class="text-xl font-bold text-orange-600">成約達成</div>
+                                        <div class="text-gray-600">初日で売上</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                                <div>
+                                    <img src="https://assets.st-note.com/img/1757495912-aTorB0z2S4CZe1sKJucqQVnD.png?width=1200"
+                                         alt="XToolsPro2の投稿管理画面"
+                                         class="w-full rounded-xl shadow-lg mb-4"
+                                         loading="lazy">
+                                    <p class="text-center text-gray-600">いいね・フォロー・問い合わせ件のようす</p>
+                                </div>
+                                <div>
+                                    <img src="https://assets.st-note.com/img/1757495833-M6lou0nz8d4JLUFaHh5xBOrj.png?width=1200"
+                                         alt="XToolsPro2の実行画面"
+                                         class="w-full rounded-xl shadow-lg mb-4"
+                                         loading="lazy">
+                                    <p class="text-center text-gray-600">成約したようす</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- 成果のポイント -->
+            <div class="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white">
+                <h3 class="text-2xl font-bold text-center mb-6">なぜ1日で成果が出るのか？</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="bg-white bg-opacity-20 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                            <span class="text-3xl">⚡</span>
+                        </div>
+                        <h4 class="font-bold mb-2">即座に稼働開始</h4>
+                        <p class="text-sm opacity-90">
+                            設定は最短5分。すぐに自動投稿が始まります
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-white bg-opacity-20 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                            <span class="text-3xl">🎯</span>
+                        </div>
+                        <h4 class="font-bold mb-2">最適なタイミング</h4>
+                        <p class="text-sm opacity-90">
+                            エンゲージメントが高い時間帯を狙って自動投稿
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-white bg-opacity-20 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                            <span class="text-3xl">🤖</span>
+                        </div>
+                        <h4 class="font-bold mb-2">AIの高品質コンテンツ</h4>
+                        <p class="text-sm opacity-90">
+                            GPT-4oが生成する魅力的な投稿で反応率UP
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ セクション -->
+    <div class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">よくあるご質問</h2>
+
+            <div class="space-y-4">
+                <details class="border rounded-lg p-6 hover:bg-gray-50 transition">
+                    <summary class="font-bold cursor-pointer">無料版との違いは何ですか？</summary>
+                    <p class="mt-4 text-gray-600">
+                        無料版では定期投稿と予約投稿のみご利用いただけます。有料版では、ランダム投稿機能、AIモード、画像プール、スプレッドシート取込など、高度な自動化機能が全て利用可能になります。
+                    </p>
+                </details>
+
+                <details class="border rounded-lg p-6 hover:bg-gray-50 transition">
+                    <summary class="font-bold cursor-pointer">買い切りプランとサブスクプランの違いは？</summary>
+                    <p class="mt-4 text-gray-600">
+                        買い切りプランは一度のお支払いで永続的にご利用いただけます。サブスクプランは月額制ですが、常に最新の機能をご利用いただけ、優先サポートも受けられます。
+                    </p>
+                </details>
+
+                <details class="border rounded-lg p-6 hover:bg-gray-50 transition">
+                    <summary class="font-bold cursor-pointer">AIモードでの投稿生成に制限はありますか？</summary>
+                    <p class="mt-4 text-gray-600">
+                        有料版では制限なくAIモードをご利用いただけます。ただし、OpenAIのAPIキーは別途ご用意いただく必要があります。
+                    </p>
+                </details>
+
+                <details class="border rounded-lg p-6 hover:bg-gray-50 transition">
+                    <summary class="font-bold cursor-pointer">複数のPCで利用できますか？</summary>
+                    <p class="mt-4 text-gray-600">
+                        ライセンスは1台のPCでのご利用となります。複数PCでのご利用をご希望の場合は、台数分のライセンスが必要です。
+                    </p>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <!-- 最後に -->
+    <div class="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">最後に</h2>
+
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <p class="text-lg leading-relaxed mb-6">
+                    ここまでお読みいただきありがとうございます。<br>
+                    この機能を導入した経緯をお話しますね。
+                </p>
+
+                <p class="text-lg leading-relaxed mb-6">
+                    成功して会社設立したアフィリエイターのお客さんに、<br>
+                    「ランダム投稿機能とAIツイート生成機能」を作ってとお願いされました。
+                </p>
+
+                <div class="bg-blue-50 rounded-xl p-6 mb-6">
+                    <h3 class="text-xl font-bold mb-4 text-blue-800">設定内容：</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>📍 投稿頻度：1時間に1回</li>
+                        <li>📝 文章ストック：20個程度（AIで作成）</li>
+                        <li>🔗 全部のツイートの最後にnoteの記事URL（商品ページ）</li>
+                        <li>👤 半年ぐらい放置してたサブアカで実施</li>
+                    </ul>
+                </div>
+
+                <p class="text-lg leading-relaxed mb-6">
+                    とりあえず試してみて、放置しました。
+                </p>
+
+                <p class="text-lg leading-relaxed mb-6">
+                    そしたらまさかの、<br>
+                    <span class="font-bold text-purple-600">いいね1件、フォロー1件、問い合わせ1件。</span>
+                </p>
+
+                <p class="text-lg leading-relaxed mb-6">
+                    これだけでも嬉しかったですが、<br>
+                    問い合わせがあったので、真摯に対応しました。
+                </p>
+
+                <p class="text-lg leading-relaxed mb-6">
+                    そうしたらご購入いただくことができました<span class="font-bold">（5000円です）</span>。<br>
+                    正直まぐれかなと思いましたが、そのあとも2件売れています。。と。
+                </p>
+
+                <p class="text-lg leading-relaxed mb-6">
+                    ここまでは、サクセスストーリーですが、<br>
+                    もちろんデメリットもありました。
+                </p>
+
+                <p class="text-lg leading-relaxed mb-6">
+                    <span class="font-bold">1つ目は、サーチバンになりました。</span><br>
+                    検索対象から除外されたので、サブ垢でやった方が良さそうです。<br>
+                    （サーチバンになった後に2件売れたり継続してフォロー入ってはいましたが、運がよかっただけかもしれません）
+                </p>
+
+                <p class="text-lg leading-relaxed mb-6">
+                    <span class="font-bold">2つ目は途中から設定を誤って1分間に1回投稿になってたのですが、</span><br>
+                    ５～６時間気づかず（60×6=360投稿くらいしてて）、<br>
+                    アカウントがロックされました。<br>
+                    ロボットではないことを証明する問題をクリアしたら<br>
+                    普通に使えるようになりましたが、ちょっと怖かったですね。
+                </p>
+
+                <p class="text-lg leading-relaxed mb-6">
+                    総じて、長くアカウントを活かすなら、<br>
+                    <span class="font-bold">適切な頻度（1時間に1回？）</span>とかが良いのかもしれません。<br>
+                    短命でも良いなら5分に1回とかで良いと思います。
+                </p>
+
+                <p class="text-lg leading-relaxed mb-6">
+                    今は1分間に1回は危ないので選択できないようにしましたが、<br>
+                    1分間に1回投稿の勢いは凄まじかったです笑。
+                </p>
+
+                <p class="text-lg leading-relaxed mb-6">
+                    初めのうちは、サブ垢で適切な投稿頻度をテストしながら、<br>
+                    利用いただければと思います。
+                </p>
+
+                <p class="text-xl font-bold text-center text-purple-600">
+                    それでは自動化ライフをお楽しみください！
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA セクション -->
+    <div class="py-20 bg-gradient-to-r from-purple-600 to-pink-600 text-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">今すぐX運用を自動化しましょう</h2>
+            <p class="text-xl mb-8 opacity-95">
+                ランダム投稿機能で、あなたのSNS運用が劇的に変わります
+            </p>
+            <div class="flex justify-center gap-4">
+                <button onclick="scrollToSection('pricing')" class="bg-white text-purple-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition">
+                    料金プランを見る
+                </button>
+                <button onclick="window.open('https://line.me/ti/g2/G97R3bGERdpqtKc974WpOC3wm0l_MtZ77NQ4fA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default', '_blank')" class="border-2 border-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-purple-600 transition">
+                    お問い合わせ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function purchasePlan(planType) {
+            if (planType === 'onetime') {
+                window.open('https://page.theapps.jp/charge/join/U8hv3G40M25l11n2', '_blank');
+            } else if (planType === 'subscription') {
+                window.open('https://page.theapps.jp/paid/join/J8hv3G40M25l66v1', '_blank');
+            }
+        }
+
+        // ページ読み込み完了後にFeatherアイコンを初期化
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof feather !== 'undefined') {
+                feather.replace();
+            }
+
+            // YouTube動画はクリックしてから読み込む（広告ブロッカーとの競合を回避）
+            document.querySelectorAll('.youtube-lite').forEach(button => {
+                button.addEventListener('click', () => {
+                    if (button.dataset.loaded === 'true') {
+                        return;
+                    }
+
+                    const videoId = button.dataset.videoId;
+                    if (!videoId) {
+                        return;
+                    }
+
+                    const iframe = document.createElement('iframe');
+                    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+                    iframe.title = button.getAttribute('aria-label') || 'YouTube video player';
+                    iframe.className = 'absolute inset-0 w-full h-full';
+                    iframe.frameBorder = '0';
+                    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+                    iframe.allowFullscreen = true;
+                    iframe.loading = 'eager';
+                    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+
+                    const wrapper = button.parentElement;
+                    wrapper.appendChild(iframe);
+
+                    button.dataset.loaded = 'true';
+                    button.remove();
+                }, { once: true });
+            });
+        });
+    </script>
+</body>
+</html>

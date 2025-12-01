@@ -1,0 +1,2326 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XTP2 Pro - 有料版へアップグレード</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-deep: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-elevated: #1a1a25;
+            --accent-primary: #00f5d4;
+            --accent-secondary: #7b2cbf;
+            --accent-tertiary: #f72585;
+            --accent-gold: #ffd60a;
+            --accent-orange: #ff6b35;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #606070;
+            --border-glow: rgba(0, 245, 212, 0.3);
+            --gradient-cyber: linear-gradient(135deg, #00f5d4 0%, #7b2cbf 50%, #f72585 100%);
+            --gradient-gold: linear-gradient(135deg, #ffd60a 0%, #ff9500 100%);
+            --gradient-fire: linear-gradient(135deg, #ff6b35 0%, #f72585 100%);
+            --shadow-neon: 0 0 60px rgba(0, 245, 212, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(0, 245, 212, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 245, 212, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-gradient-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--accent-secondary);
+            top: -200px;
+            right: -200px;
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent-primary);
+            bottom: -100px;
+            left: -100px;
+            animation-delay: -7s;
+        }
+
+        .orb-3 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent-tertiary);
+            top: 50%;
+            left: 50%;
+            animation-delay: -14s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            25% {
+                transform: translate(50px, -50px) scale(1.1);
+            }
+
+            50% {
+                transform: translate(-30px, 30px) scale(0.9);
+            }
+
+            75% {
+                transform: translate(-50px, -30px) scale(1.05);
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px 24px;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 245, 212, 0.1);
+            border: 1px solid var(--border-glow);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-primary);
+            margin-bottom: 32px;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(0, 245, 212, 0.2);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(0, 245, 212, 0.4);
+            }
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            animation: blink 1s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(3rem, 10vw, 7rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero-title .gradient-text {
+            background: var(--gradient-cyber);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-title .outline-text {
+            color: transparent;
+            -webkit-text-stroke: 2px var(--accent-primary);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-bottom: 48px;
+            font-weight: 300;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--gradient-cyber);
+            color: var(--bg-deep);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-neon);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 0 80px rgba(0, 245, 212, 0.5);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: transparent;
+            color: var(--text-primary);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 18px 40px;
+            border: 2px solid var(--text-muted);
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        .btn-gold {
+            background: var(--gradient-gold);
+            color: var(--bg-deep);
+        }
+
+        .btn-gold:hover {
+            box-shadow: 0 0 60px rgba(255, 214, 10, 0.4);
+        }
+
+        .btn-purple {
+            background: linear-gradient(135deg, #7b2cbf, #f72585);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(10px);
+            }
+        }
+
+        .scroll-indicator svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        section {
+            padding: 120px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Results Section */
+        .results-section {
+            margin: 80px 0;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .result-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-glow);
+        }
+
+        .result-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 900;
+            background: var(--gradient-cyber);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .result-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Real Results Section */
+        .real-results-section {
+            background: var(--bg-card);
+            border-radius: 32px;
+            padding: 60px;
+            margin: 60px 0;
+        }
+
+        .result-image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .result-image-card {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .result-image-card:hover {
+            transform: scale(1.02);
+            border-color: var(--accent-primary);
+        }
+
+        .result-image-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .result-image-caption {
+            padding: 16px;
+            background: var(--bg-elevated);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .flow-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin: 40px 0;
+        }
+
+        @media (max-width: 768px) {
+            .flow-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .flow-item {
+            text-align: center;
+            padding: 24px;
+            background: linear-gradient(135deg, rgba(0, 245, 212, 0.1), rgba(123, 44, 191, 0.1));
+            border-radius: 16px;
+        }
+
+        .flow-item .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .flow-item h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .flow-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .flow-item.highlight h4 {
+            color: var(--accent-orange);
+        }
+
+        /* Why Section */
+        .why-section {
+            background: linear-gradient(180deg, var(--bg-card), transparent);
+            border-radius: 32px;
+            padding: 60px;
+            margin: 60px 0;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        @media (max-width: 768px) {
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 32px;
+        }
+
+        .why-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 2px var(--accent-primary);
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        .why-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--accent-primary);
+        }
+
+        .why-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* Screenshots Section */
+        .screenshots-section {
+            background: var(--bg-card);
+            border-radius: 32px;
+            padding: 60px;
+            margin: 60px 0;
+        }
+
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .screenshot-item {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            background: var(--bg-elevated);
+        }
+
+        .screenshot-item:hover {
+            transform: scale(1.02);
+            border-color: var(--accent-primary);
+        }
+
+        .screenshot-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: #1e1e2e;
+        }
+
+        .screenshot-header .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .screenshot-header .dot.red {
+            background: #ff5f56;
+        }
+
+        .screenshot-header .dot.yellow {
+            background: #ffbd2e;
+        }
+
+        .screenshot-header .dot.green {
+            background: #27ca40;
+        }
+
+        .screenshot-header span {
+            margin-left: 12px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .screenshot-body {
+            padding: 24px;
+        }
+
+        .mock-ui {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .mock-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .mock-header h5 {
+            font-size: 0.9rem;
+        }
+
+        .mock-btn {
+            background: var(--accent-primary);
+            color: var(--bg-deep);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .mock-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mock-list-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: var(--bg-elevated);
+            border-radius: 6px;
+        }
+
+        .mock-avatar {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient-cyber);
+            border-radius: 50%;
+        }
+
+        .mock-text {
+            flex: 1;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .mock-img-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        .mock-img {
+            aspect-ratio: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        /* Video Section */
+        .video-section {
+            margin: 80px 0;
+            text-align: center;
+        }
+
+        .video-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+            background: #000;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .youtube-lite {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+        }
+
+        .youtube-lite img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .youtube-lite .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            transition: background 0.3s;
+        }
+
+        .youtube-lite:hover .overlay {
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        .play-button {
+            position: relative;
+            z-index: 1;
+            width: 80px;
+            height: 80px;
+            background: #ff0000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+        .youtube-lite:hover .play-button {
+            transform: scale(1.1);
+        }
+
+        .play-button svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+            margin-left: 4px;
+        }
+
+        .video-features-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .video-feature-tag {
+            background: rgba(0, 245, 212, 0.1);
+            border: 1px solid var(--border-glow);
+            color: var(--accent-primary);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-cyber);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-glow);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(0, 245, 212, 0.2), rgba(123, 44, 191, 0.2));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 28px;
+        }
+
+        .feature-card.highlight .feature-icon {
+            background: var(--gradient-cyber);
+        }
+
+        .feature-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gradient-gold);
+            color: var(--bg-deep);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .feature-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .feature-list {
+            margin-top: 20px;
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .feature-list li::before {
+            content: '✅';
+        }
+
+        .new-features-banner {
+            background: linear-gradient(135deg, rgba(247, 37, 133, 0.2), rgba(123, 44, 191, 0.2));
+            border: 1px solid rgba(247, 37, 133, 0.3);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .new-features-banner h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.25rem;
+            color: var(--accent-tertiary);
+            margin-bottom: 12px;
+        }
+
+        .new-tag {
+            display: inline-block;
+            background: var(--accent-tertiary);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 3px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            background: var(--bg-card);
+            border-radius: 32px;
+            padding: 60px;
+            margin: 60px 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pricing-card {
+            background: var(--bg-elevated);
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+            border: 2px solid transparent;
+            transition: all 0.4s ease;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--accent-primary);
+            box-shadow: var(--shadow-neon);
+        }
+
+        .pricing-card .popular-badge {
+            position: absolute;
+            top: -14px;
+            right: 20px;
+            background: #ff0000;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .plan-type {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+
+        .plan-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .price-container {
+            margin-bottom: 24px;
+        }
+
+        .original-price {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-bottom: 4px;
+        }
+
+        .current-price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--accent-primary);
+        }
+
+        .current-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .discount-badge {
+            display: inline-block;
+            background: var(--gradient-fire);
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-left: 12px;
+        }
+
+        .plan-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .plan-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+        }
+
+        .check-icon {
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 245, 212, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-primary);
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .coupon-box {
+            background: linear-gradient(135deg, rgba(123, 44, 191, 0.2), rgba(247, 37, 133, 0.2));
+            border: 2px dashed var(--accent-secondary);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 24px;
+            text-align: center;
+        }
+
+        .coupon-label {
+            font-size: 0.85rem;
+            color: var(--accent-tertiary);
+            margin-bottom: 8px;
+        }
+
+        .coupon-code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            background: rgba(255, 214, 10, 0.1);
+            padding: 8px 24px;
+            border-radius: 8px;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .coupon-code:hover {
+            background: rgba(255, 214, 10, 0.2);
+            transform: scale(1.05);
+        }
+
+        .coupon-discount {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+
+        .free-trial-badge {
+            background: linear-gradient(135deg, #ffd60a, #ff9500);
+            color: var(--bg-deep);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* Comparison Table */
+        .comparison-mini {
+            margin-top: 60px;
+        }
+
+        .comparison-mini table {
+            width: auto;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background: var(--bg-elevated);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .comparison-mini th,
+        .comparison-mini td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .comparison-mini th {
+            background: var(--bg-card);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .comparison-mini th:first-child,
+        .comparison-mini td:first-child {
+            width: 30%;
+        }
+
+        .comparison-mini th:nth-child(2),
+        .comparison-mini td:nth-child(2),
+        .comparison-mini th:nth-child(3),
+        .comparison-mini td:nth-child(3) {
+            width: 15%;
+            text-align: center;
+        }
+
+        .comparison-mini td:first-child {
+            color: var(--text-secondary);
+        }
+
+        .comparison-mini .check {
+            color: var(--accent-primary);
+        }
+
+        .comparison-mini .cross {
+            color: var(--text-muted);
+        }
+
+        /* Final Message */
+        .final-section {
+            text-align: center;
+            padding: 80px 24px;
+            margin: 60px 0;
+        }
+
+        .final-message {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 2;
+        }
+
+        .story-box {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: left;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        .story-box p {
+            margin-bottom: 20px;
+            line-height: 1.9;
+        }
+
+        .story-box .highlight-box {
+            background: linear-gradient(135deg, rgba(0, 245, 212, 0.1), rgba(123, 44, 191, 0.1));
+            border-left: 4px solid var(--accent-primary);
+            padding: 20px;
+            border-radius: 0 12px 12px 0;
+            margin: 24px 0;
+        }
+
+        .story-box .highlight-box h4 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-primary);
+            margin-bottom: 12px;
+        }
+
+        .story-box .highlight-box ul {
+            list-style: none;
+        }
+
+        .story-box .highlight-box li {
+            padding: 4px 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 100px 24px;
+            background: linear-gradient(180deg, transparent, rgba(0, 245, 212, 0.05));
+            border-radius: 32px;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 245, 212, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-eyecatch {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: var(--accent-tertiary);
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .cta-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .cta-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 24px;
+            position: relative;
+            line-height: 1.9;
+        }
+
+        .cta-highlight {
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 40px;
+            position: relative;
+        }
+
+        .cta-note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 24px;
+            position: relative;
+        }
+
+        .contact-link {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: var(--accent-secondary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-5 {
+            animation-delay: 0.5s;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 60px 16px;
+            }
+
+            .pricing-section,
+            .screenshots-section,
+            .why-section,
+            .real-results-section {
+                padding: 32px 20px;
+            }
+
+            .pricing-card {
+                padding: 28px;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .story-box {
+                padding: 24px;
+            }
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: var(--bg-card);
+            border-radius: 32px;
+            padding: 60px;
+            margin: 60px 0;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-elevated);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--border-glow);
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--accent-primary);
+        }
+
+        .faq-question svg {
+            width: 20px;
+            height: 20px;
+            color: var(--text-muted);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+
+        .faq-item.active .faq-question svg {
+            transform: rotate(180deg);
+            color: var(--accent-primary);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 24px 24px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Effects -->
+    <div class="bg-grid"></div>
+    <div class="bg-gradient-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge fade-in">
+                <span>有料版 AVAILABLE</span>
+            </div>
+
+            <h1 class="hero-title fade-in delay-1">
+                <span class="gradient-text">XToolsPro2</span><br>
+                <span class="outline-text">NoAPI</span>
+            </h1>
+
+            <p class="hero-subtitle fade-in delay-2">
+                X運用を完全自動化！<br>
+                ランダム投稿で24時間365日稼働。AIが自動でコンテンツ生成。
+            </p>
+
+            <div class="hero-cta fade-in delay-3">
+                <a href="#pricing" class="btn-primary">
+                    <span>料金プランを見る</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+                <a href="#features" class="btn-secondary">
+                    <span>機能を詳しく見る</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>SCROLL</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M19 12l-7 7-7-7" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- 驚きの実績 -->
+    <section class="container">
+        <div class="real-results-section">
+            <div class="section-header" style="margin-bottom: 40px;">
+                <p class="section-label">AMAZING RESULTS</p>
+                <h2 class="section-title">驚きの実績</h2>
+                <p class="section-description">
+                    XToolsPro2_NoAPIランダム機能+AIツイート生成を使って、<br>
+                    <strong style="color: var(--accent-gold);">たった1日で成約</strong>
+                </p>
+            </div>
+
+            <!-- フォロー数での成果 -->
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h3 style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem; margin-bottom: 24px;">
+                    フォロワー30人程度のサブ垢でも結果が出せました
+                </h3>
+                <div class="result-image-card" style="max-width: 700px; margin: 0 auto;">
+                    <img src="https://assets.st-note.com/img/1757495474-PkS4BO0R7mXDZ8Nn9KGATWug.png"
+                        alt="フォロワー30人のサブアカウントでの実績" loading="lazy">
+                    <div class="result-image-caption">
+                        フォロワー数が少なくても、適切な自動化で成果は出せることを証明
+                    </div>
+                </div>
+            </div>
+
+            <!-- 成果フロー -->
+            <h4
+                style="text-align: center; font-family: 'Orbitron', sans-serif; font-size: 1.25rem; margin-bottom: 24px;">
+                いいね1件、フォロー1件、問い合わせ1件、そして成約まで到達！
+            </h4>
+
+            <div class="flow-grid">
+                <div class="flow-item">
+                    <div class="emoji">❤️</div>
+                    <h4>いいね獲得</h4>
+                    <p>投稿への反応</p>
+                </div>
+                <div class="flow-item">
+                    <div class="emoji">👤</div>
+                    <h4>フォロー獲得</h4>
+                    <p>新規フォロワー</p>
+                </div>
+                <div class="flow-item">
+                    <div class="emoji">📧</div>
+                    <h4>問い合わせ</h4>
+                    <p>見込み客から</p>
+                </div>
+                <div class="flow-item highlight">
+                    <div class="emoji">🎯</div>
+                    <h4>成約達成</h4>
+                    <p>初日で売上</p>
+                </div>
+            </div>
+
+            <!-- 成果画像 -->
+            <div class="result-image-grid">
+                <div class="result-image-card">
+                    <img src="https://assets.st-note.com/img/1757495912-aTorB0z2S4CZe1sKJucqQVnD.png?width=1200"
+                        alt="いいね・フォロー・問い合わせのようす" loading="lazy">
+                    <div class="result-image-caption">いいね・フォロー・問い合わせ件のようす</div>
+                </div>
+                <div class="result-image-card">
+                    <img src="https://assets.st-note.com/img/1757495833-M6lou0nz8d4JLUFaHh5xBOrj.png?width=1200"
+                        alt="成約したようす" loading="lazy">
+                    <div class="result-image-caption">成約したようす</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- なぜ1日で成果が出るのか -->
+    <section class="container">
+        <div class="why-section">
+            <div class="section-header">
+                <p class="section-label">WHY SO FAST?</p>
+                <h2 class="section-title">なぜ1日で成果が出るのか？</h2>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-card fade-in">
+                    <div class="why-number">01</div>
+                    <h3 class="why-title">即座に稼働開始</h3>
+                    <p class="why-description">
+                        設定は最短5分。すぐに自動投稿が始まります。あなたが寝ている間もアカウントは24時間アクティブに。
+                    </p>
+                </div>
+                <div class="why-card fade-in delay-1">
+                    <div class="why-number">02</div>
+                    <h3 class="why-title">最適なタイミング</h3>
+                    <p class="why-description">
+                        エンゲージメントが高い時間帯を狙って自動投稿。ゆらぎ機能で人間らしい自然な投稿パターンを実現。
+                    </p>
+                </div>
+                <div class="why-card fade-in delay-2">
+                    <div class="why-number">03</div>
+                    <h3 class="why-title">AIの高品質コンテンツ</h3>
+                    <p class="why-description">
+                        GPT-4oが生成する魅力的な投稿で反応率UP。テーマを設定するだけで10個の投稿案を即座に作成。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 実際の画面 -->
+    <section class="container">
+        <div class="screenshots-section">
+            <div class="section-header" style="margin-bottom: 40px;">
+                <p class="section-label">SCREENSHOTS</p>
+                <h2 class="section-title">実際の画面をご覧ください</h2>
+            </div>
+
+            <div class="screenshot-grid">
+                <!-- 投稿キュー -->
+                <div class="screenshot-item fade-in">
+                    <div class="screenshot-header">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                        <span>投稿キュー管理</span>
+                    </div>
+                    <div class="screenshot-body">
+                        <div class="mock-ui">
+                            <div class="mock-header">
+                                <h5>ランダム投稿キュー</h5>
+                                <span class="mock-btn">投稿開始</span>
+                            </div>
+                            <div class="mock-list">
+                                <div class="mock-list-item">
+                                    <span style="color: var(--text-muted);">1</span>
+                                    <div class="mock-text" style="width: 60%;"></div>
+                                    <div class="mock-img" style="width: 24px; height: 24px;"></div>
+                                </div>
+                                <div class="mock-list-item">
+                                    <span style="color: var(--text-muted);">2</span>
+                                    <div class="mock-text" style="width: 70%;"></div>
+                                    <div class="mock-img" style="width: 24px; height: 24px;"></div>
+                                </div>
+                                <div class="mock-list-item">
+                                    <span style="color: var(--text-muted);">3</span>
+                                    <div class="mock-text" style="width: 55%;"></div>
+                                    <div class="mock-img" style="width: 24px; height: 24px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AIモード -->
+                <div class="screenshot-item fade-in delay-1">
+                    <div class="screenshot-header">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                        <span>AIモード</span>
+                    </div>
+                    <div class="screenshot-body">
+                        <div class="mock-ui">
+                            <div class="mock-header">
+                                <h5>AI投稿生成</h5>
+                            </div>
+                            <div style="padding: 8px 0;">
+                                <div
+                                    style="background: rgba(0, 245, 212, 0.1); padding: 10px; border-radius: 8px; margin-bottom: 8px; font-size: 0.8rem;">
+                                    AI: 投稿のテーマは何ですか？
+                                </div>
+                                <div
+                                    style="background: var(--bg-card); padding: 10px; border-radius: 8px; margin-bottom: 8px; font-size: 0.8rem;">
+                                    SNS運用の効率化について
+                                </div>
+                            </div>
+                            <button
+                                style="width: 100%; background: var(--gradient-cyber); color: var(--bg-deep); padding: 10px; border: none; border-radius: 6px; font-weight: 600; font-size: 0.85rem;">
+                                10個の投稿を生成
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 画像プール -->
+                <div class="screenshot-item fade-in delay-2">
+                    <div class="screenshot-header">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                        <span>画像プール</span>
+                    </div>
+                    <div class="screenshot-body">
+                        <div class="mock-ui">
+                            <div class="mock-header">
+                                <h5>共有画像リソース</h5>
+                                <span class="mock-btn">画像追加</span>
+                            </div>
+                            <div class="mock-img-grid">
+                                <div class="mock-img"></div>
+                                <div class="mock-img"></div>
+                                <div class="mock-img"></div>
+                                <div class="mock-img"></div>
+                                <div class="mock-img"></div>
+                                <div class="mock-img"></div>
+                                <div class="mock-img"></div>
+                                <div class="mock-img"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 設定画面 -->
+                <div class="screenshot-item fade-in delay-3">
+                    <div class="screenshot-header">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                        <span>ランダム投稿設定</span>
+                    </div>
+                    <div class="screenshot-body">
+                        <div class="mock-ui">
+                            <div class="mock-header">
+                                <h5>投稿設定</h5>
+                            </div>
+                            <div style="font-size: 0.8rem;">
+                                <div style="margin-bottom: 12px;">
+                                    <div style="color: var(--text-muted); margin-bottom: 4px;">基本投稿間隔</div>
+                                    <div style="background: var(--bg-card); padding: 8px 12px; border-radius: 4px;">120分
+                                    </div>
+                                </div>
+                                <div style="margin-bottom: 12px;">
+                                    <div style="color: var(--text-muted); margin-bottom: 4px;">ゆらぎ（分）</div>
+                                    <div style="background: var(--bg-card); padding: 8px 12px; border-radius: 4px;">30分
+                                    </div>
+                                </div>
+                                <div>
+                                    <div style="color: var(--text-muted); margin-bottom: 4px;">投稿時間帯</div>
+                                    <div style="background: var(--bg-card); padding: 8px 12px; border-radius: 4px;">
+                                        09:00 〜 22:00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 動画セクション -->
+    <section class="video-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">VIDEO DEMO</p>
+                <h2 class="section-title">実際の操作を動画でご覧ください</h2>
+                <p class="section-description">
+                    ランダム投稿、AIツイート生成、スプレッドシート取込の実演
+                </p>
+            </div>
+
+            <div class="video-container fade-in">
+                <div class="video-wrapper">
+                    <button type="button" class="youtube-lite" data-video-id="xwOo6I2L2A8"
+                        aria-label="XTP2 NoAPI - ランダム投稿機能デモを再生">
+                        <img src="https://img.youtube.com/vi/xwOo6I2L2A8/hqdefault.jpg"
+                            alt="XTP2 NoAPI - ランダム投稿機能デモのプレビュー" loading="lazy">
+                        <span class="overlay"></span>
+                        <span class="play-button">
+                            <svg viewBox="0 0 24 24">
+                                <polygon points="5,3 19,12 5,21" />
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="video-features-list fade-in delay-1">
+                <span class="video-feature-tag">🎲 ランダム投稿</span>
+                <span class="video-feature-tag">🤖 AIツイート生成</span>
+                <span class="video-feature-tag">📊 スプレッドシート取込</span>
+                <span class="video-feature-tag">🖼️ 画像プール</span>
+                <span class="video-feature-tag">⏰ ゆらぎ機能</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 機能紹介 -->
+    <section id="features" class="container">
+        <div class="section-header">
+            <p class="section-label">PREMIUM FEATURES</p>
+            <h2 class="section-title">有料版でできること</h2>
+            <p class="section-description">
+                無料版の全機能に加え、プロフェッショナルな自動化機能をアンロック
+            </p>
+        </div>
+
+        <div class="new-features-banner fade-in">
+            <h3>🎉 新機能追加！</h3>
+            <p><strong>自動リプライ</strong>と<strong>自動フォロー</strong>機能が有料版に登場。エンゲージメントを自動で最大化！</p>
+        </div>
+
+        <div class="features-grid">
+            <!-- 自動リプライ -->
+            <div class="feature-card highlight fade-in">
+                <span class="feature-badge">NEW</span>
+                <div class="feature-icon">💬</div>
+                <h3 class="feature-title">自動リプライ<span class="new-tag">NEW</span></h3>
+                <p class="feature-description">
+                    自身のポストにAIが自動でリプライして、アルゴリズムスコアアップ。
+                </p>
+                <ul class="feature-list">
+                    <li>AIによるスマートなリプライ自動生成</li>
+                    <li>カスタムプロンプトで返信内容を調整</li>
+                    <li>定期監視で新規投稿を自動検出</li>
+                </ul>
+            </div>
+
+            <!-- 自動フォロー -->
+            <div class="feature-card highlight fade-in delay-1">
+                <span class="feature-badge">NEW</span>
+                <div class="feature-icon">👥</div>
+                <h3 class="feature-title">自動フォロー<span class="new-tag">NEW</span></h3>
+                <p class="feature-description">
+                    ターゲットユーザーを自動でフォロー。効率的にフォロワーを増やし、コミュニティを拡大。
+                </p>
+                <ul class="feature-list">
+                    <li>CSVでフォロー対象を一括管理</li>
+                    <li>ランダム間隔でレート制限を回避</li>
+                    <li>フォロー状態を自動追跡・記録</li>
+                </ul>
+            </div>
+
+            <!-- AIモード -->
+            <div class="feature-card fade-in delay-2">
+                <div class="feature-icon">🤖</div>
+                <h3 class="feature-title">AIモード</h3>
+                <p class="feature-description">
+                    GPT-4oがあなたの代わりに魅力的な投稿を自動生成。テーマを設定するだけで、10個の投稿案を即座に作成。
+                </p>
+                <ul class="feature-list">
+                    <li>ターゲットに合わせた文章調整</li>
+                    <li>ハッシュタグ自動生成</li>
+                    <li>感情トーンのカスタマイズ</li>
+                </ul>
+            </div>
+
+            <!-- ゆらぎ機能 -->
+            <div class="feature-card fade-in delay-3">
+                <div class="feature-icon">🎲</div>
+                <h3 class="feature-title">ゆらぎ機能</h3>
+                <p class="feature-description">
+                    人間らしい自然な投稿パターンを実現。機械的な定期投稿とは違い、アルゴリズムに検知されにくい投稿を実現。
+                </p>
+                <ul class="feature-list">
+                    <li>ランダムな投稿間隔</li>
+                    <li>時間帯制限設定</li>
+                    <li>重複防止アルゴリズム</li>
+                </ul>
+            </div>
+
+            <!-- 画像プール -->
+            <div class="feature-card fade-in delay-4">
+                <div class="feature-icon">🖼️</div>
+                <h3 class="feature-title">画像プール</h3>
+                <p class="feature-description">
+                    大量の画像を効率的に管理。投稿ごとに自動で画像を選択し、視覚的に魅力的な投稿を作成。
+                </p>
+                <ul class="feature-list">
+                    <li>ドラッグ&ドロップアップロード</li>
+                    <li>自動画像選択</li>
+                    <li>グリッド表示管理</li>
+                </ul>
+            </div>
+
+            <!-- スプレッドシート取込 -->
+            <div class="feature-card fade-in delay-5">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">スプレッドシート取込</h3>
+                <p class="feature-description">
+                    既存のコンテンツを一括インポート。Excelやスプレッドシートから簡単にデータを取り込めます。
+                </p>
+                <ul class="feature-list">
+                    <li>一括インポート</li>
+                    <li>複数選択対応</li>
+                    <li>リアルタイムプレビュー</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 料金プラン -->
+    <section id="pricing" class="container">
+        <div class="section-header">
+            <p class="section-label">PRICING PLANS</p>
+            <h2 class="section-title">選べる2つの料金プラン</h2>
+            <p class="section-description">
+                あなたのニーズに合わせて最適なプランをお選びください
+            </p>
+        </div>
+
+        <div class="pricing-section">
+            <div class="pricing-grid">
+                <!-- 買い切りプラン -->
+                <div class="pricing-card fade-in">
+                    <div class="plan-type">Lifetime</div>
+                    <h3 class="plan-name">買い切りプラン</h3>
+                    <div class="price-container">
+                        <div class="original-price">¥29,800（税込）</div>
+                        <div class="current-price">¥6,980 <span>（税込）</span></div>
+                    </div>
+                    <p class="plan-description">
+                        一度の支払いで永続利用。メジャーアップデートも無料。長期利用なら断然お得！
+                    </p>
+                    <ul class="plan-features">
+                        <li><span class="check-icon">✓</span>永続ライセンス</li>
+                        <li><span class="check-icon">✓</span>全機能利用可能</li>
+                        <li><span class="check-icon">✓</span>自動リプライ</li>
+                        <li><span class="check-icon">✓</span>自動フォロー</li>
+                        <li><span class="check-icon">✓</span>メジャーアップデート無料</li>
+                        <li><span class="check-icon">✓</span>メールサポート付き</li>
+                        <li><span class="check-icon">✓</span>30日間返金保証</li>
+                    </ul>
+                    <a href="https://page.theapps.jp/charge/join/U8hv3G40M25l11n2" target="_blank"
+                        class="btn-primary btn-gold" style="width: 100%; justify-content: center;">
+                        今すぐ購入
+                    </a>
+
+                    <div class="coupon-box">
+                        <div class="coupon-label">🎁 限定クーポン</div>
+                        <div class="coupon-code"
+                            onclick="navigator.clipboard.writeText('Iw7RR'); alert('クーポンコードをコピーしました！')">Iw7RR</div>
+                        <div class="coupon-discount">¥22,820 OFF適用済み！</div>
+                    </div>
+                </div>
+
+                <!-- サブスクプラン -->
+                <div class="pricing-card featured fade-in delay-1">
+                    <span class="popular-badge">人気No.1</span>
+                    <div class="plan-type">Monthly</div>
+                    <h3 class="plan-name">サブスクプラン</h3>
+                    <div class="price-container">
+                        <div class="original-price">¥1,980/月</div>
+                        <div class="current-price">¥980 <span>/ 月（税込）</span></div>
+                    </div>
+
+                    <div class="free-trial-badge">
+                        🎁 初月無料 + クーポン適用でずっと¥980/月
+                    </div>
+
+                    <p class="plan-description">
+                        常に最新版を利用可能。いつでも解約OK。まずは試してみたい方におすすめ。
+                    </p>
+                    <ul class="plan-features">
+                        <li><span class="check-icon">✓</span><strong>初月完全無料</strong></li>
+                        <li><span class="check-icon">✓</span>いつでも解約可能</li>
+                        <li><span class="check-icon">✓</span>全機能利用可能</li>
+                        <li><span class="check-icon">✓</span>自動リプライ</li>
+                        <li><span class="check-icon">✓</span>自動フォロー</li>
+                        <li><span class="check-icon">✓</span>最新機能を即座に利用</li>
+                        <li><span class="check-icon">✓</span>優先サポート</li>
+                    </ul>
+                    <a href="https://page.theapps.jp/paid/join/J8hv3G40M25l66v1" target="_blank"
+                        class="btn-primary btn-purple" style="width: 100%; justify-content: center;">
+                        初月無料で試す
+                    </a>
+
+                    <div class="coupon-box">
+                        <div class="coupon-label">🔥 永続割引クーポン</div>
+                        <div class="coupon-code"
+                            onclick="navigator.clipboard.writeText('TANTv'); alert('クーポンコードをコピーしました！')">TANTv</div>
+                        <div class="coupon-discount">永続1,000円OFF → ずっと¥980/月</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 比較表 -->
+            <div class="comparison-mini fade-in">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>機能比較</th>
+                            <th>無料版</th>
+                            <th>有料版</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>定期投稿</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>予約投稿</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>ランダム投稿</td>
+                            <td class="cross">✕</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>AIモード</td>
+                            <td class="cross">✕</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>画像プール</td>
+                            <td class="cross">✕</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>スプレッドシート取込</td>
+                            <td class="cross">✕</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>自動リプライ</td>
+                            <td class="cross">✕</td>
+                            <td class="check">✓ NEW</td>
+                        </tr>
+                        <tr>
+                            <td>自動フォロー</td>
+                            <td class="cross">✕</td>
+                            <td class="check">✓ NEW</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="container">
+        <div class="faq-section">
+            <div class="section-header" style="margin-bottom: 40px;">
+                <p class="section-label">FAQ</p>
+                <h2 class="section-title">よくある質問</h2>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item fade-in">
+                    <button class="faq-question" type="button">
+                        無料版との違いは何ですか？
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            無料版では定期投稿と予約投稿のみご利用いただけます。有料版では、ランダム投稿機能、AIモード、画像プール、スプレッドシート取込、自動リプライ、自動フォローなど、高度な自動化機能が全て利用可能になります。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <button class="faq-question" type="button">
+                        買い切りプランとサブスクプランの違いは？
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            買い切りプランは一度のお支払いで永続的にご利用いただけます。サブスクプランは月額制ですが、常に最新の機能をご利用いただけ、優先サポートも受けられます。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <button class="faq-question" type="button">
+                        Xアカウントは何個まで登録可能ですか？
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            登録に制限はありません。ただ、定期実行タイミングによって、複数のアカウントが同時に処理される場合（＝Chromeがアカウントの数だけ立ち上がる場合）、PCによっては処理落ちするかもしれませんので、10個程度を目安に考えて頂ければと思います。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <button class="faq-question" type="button">
+                        AIモードでの投稿生成に制限はありますか？
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            有料版では制限なくAIモードをご利用いただけます。ただし、OpenAIのAPIキーは別途ご用意いただく必要があります。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <button class="faq-question" type="button">
+                        複数のPCで利用できますか？
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            ライセンスは1台のPCでのご利用となります。複数PCでのご利用をご希望の場合は、台数分のライセンスが必要です。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <button class="faq-question" type="button">
+                        無料版からのデータ移行はできますか？
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            はい、無料版で設定したアカウント情報や投稿データはすべてそのまま引き継がれます。アップグレード後、追加の設定なしにすぐにプレミアム機能をご利用いただけます。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <button class="faq-question" type="button">
+                        支払い方法は何がありますか？
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            クレジットカード、銀行振込、PayPalに対応しております。お支払い方法の詳細は購入ページでご確認いただけます。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <button class="faq-question" type="button">
+                        返金保証はありますか？
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            はい、購入後30日間の返金保証をご用意しています。万が一ご満足いただけない場合は、全額返金いたします。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <button class="faq-question" type="button">
+                        アップデートは有料ですか？
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            いいえ、一度ご購入いただければ、今後のアップデートはすべて無料でご利用いただけます。新機能の追加やバグ修正も含まれます。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <button class="faq-question" type="button">
+                        サポートはどのように受けられますか？
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            有料版をご購入いただいたお客様には、優先サポートをご提供しています。LINEオープンチャットまたはメールからお問い合わせいただけます。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最後に -->
+    <section class="final-section">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 40px;">
+                <p class="section-label">FINAL MESSAGE</p>
+                <h2 class="section-title">最後に</h2>
+            </div>
+
+            <div class="story-box fade-in">
+                <p>ここまでお読みいただきありがとうございます。<br>この機能を導入した経緯をお話しますね。</p>
+
+                <p>成功して会社設立したアフィリエイターのお客さんに、<br>「ランダム投稿機能とAIツイート生成機能」を作ってとお願いされました。</p>
+
+                <div class="highlight-box">
+                    <h4>設定内容：</h4>
+                    <ul>
+                        <li>📍 投稿頻度：1時間に1回</li>
+                        <li>📝 文章ストック：20個程度（AIで作成）</li>
+                        <li>🔗 全部のツイートの最後にnoteの記事URL（商品ページ）</li>
+                        <li>👤 半年ぐらい放置してたサブアカで実施</li>
+                    </ul>
+                </div>
+
+                <p>とりあえず試してみて、放置しました。</p>
+
+                <p>そしたらまさかの、<br><strong style="color: var(--accent-primary);">いいね1件、フォロー1件、問い合わせ1件。</strong></p>
+
+                <p>これだけでも嬉しかったですが、<br>問い合わせがあったので、真摯に対応しました。</p>
+
+                <p>そうしたらご購入いただくことができました<strong>（5000円です）</strong>。<br>正直まぐれかなと思いましたが、そのあとも2件売れています。。と。</p>
+
+                <p>ここまでは、サクセスストーリーですが、<br>もちろんデメリットもありました。</p>
+
+                <p><strong
+                        style="color: var(--accent-tertiary);">1つ目は、サーチバンになりました。</strong><br>検索対象から除外されたので、サブ垢でやった方が良さそうです。
+                </p>
+
+                <p><strong
+                        style="color: var(--accent-tertiary);">2つ目は途中から設定を誤って1分間に1回投稿になってた</strong>のですが、<br>5～6時間気づかず、アカウントがロックされました。<br>ロボットではないことを証明する問題をクリアしたら普通に使えるようになりました。
+                </p>
+
+                <p>総じて、長くアカウントを活かすなら、<br><strong>適切な頻度（1時間に1回？）</strong>とかが良いのかもしれません。</p>
+
+                <p>初めのうちは、サブ垢で適切な投稿頻度をテストしながら、<br>利用いただければと思います。</p>
+
+                <p style="text-align: center; font-size: 1.25rem; color: var(--accent-primary); margin-top: 32px;">
+                    <strong>それでは自動化ライフをお楽しみください！</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="container">
+        <div class="cta-section">
+            <p class="cta-eyecatch fade-in">🚀 今すぐ始めよう</p>
+
+            <h2 class="cta-title fade-in delay-1">
+                今すぐ<span style="color: var(--accent-primary);">X運用</span>を自動化しましょう
+            </h2>
+
+            <p class="cta-description fade-in delay-2">
+                ランダム投稿機能で、あなたのSNS運用が劇的に変わります。<br>
+                <span class="cta-highlight">24時間365日、あなたの代わりに投稿し続けます。</span>
+            </p>
+
+            <div class="cta-buttons fade-in delay-3">
+                <a href="https://page.theapps.jp/charge/join/U8hv3G40M25l11n2" target="_blank"
+                    class="btn-primary btn-gold">
+                    <span>買い切り版 ¥6,980</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+                <a href="https://page.theapps.jp/paid/join/J8hv3G40M25l66v1" target="_blank"
+                    class="btn-primary btn-purple">
+                    <span>初月無料で試す ¥980/月</span>
+                </a>
+            </div>
+
+            <p class="cta-note fade-in delay-4">
+                ご不明な点がございましたら、お気軽に<a href="https://line.me/ti/g2/G97R3bGERdpqtKc974WpOC3wm0l_MtZ77NQ4fA" target="_blank"
+                    class="contact-link">オープンチャットでお問い合わせ</a>ください
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 XTP2 NoAPI. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // YouTube IFrame API
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var ytPlayers = {};
+
+        window.onYouTubeIframeAPIReady = function() {
+            // API is ready
+        };
+
+        document.querySelectorAll('.youtube-lite').forEach(button => {
+            button.addEventListener('click', function() {
+                const videoId = this.dataset.videoId;
+                if (!videoId) return;
+
+                const playerId = 'yt-player-' + videoId;
+                this.innerHTML = `<div id="${playerId}" style="position:absolute;inset:0;width:100%;height:100%;"></div>`;
+                this.classList.add('playing');
+                this.style.cursor = 'default';
+
+                ytPlayers[videoId] = new YT.Player(playerId, {
+                    width: '100%',
+                    height: '100%',
+                    videoId: videoId,
+                    playerVars: {
+                        'autoplay': 1,
+                        'rel': 0,
+                        'modestbranding': 1
+                    }
+                });
+            });
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Open clicked item if it wasn't already open
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

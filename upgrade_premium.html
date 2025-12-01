@@ -1,0 +1,2546 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XToolsPro2 Premium - アップグレード</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Feather Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a25;
+            --bg-card-hover: #222230;
+            --gold-primary: #d4af37;
+            --gold-light: #f5d77a;
+            --gold-dark: #a68928;
+            --purple-primary: #8b5cf6;
+            --purple-dark: #6b21a8;
+            --purple-glow: rgba(139, 92, 246, 0.3);
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-gold: rgba(212, 175, 55, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .display-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* ===== Particle Background ===== */
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gold-primary);
+            border-radius: 50%;
+            opacity: 0;
+            animation: float-particle 15s infinite;
+        }
+
+        @keyframes float-particle {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) scale(0);
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh) scale(1);
+            }
+        }
+
+        /* ===== Geometric Decorations ===== */
+        .geo-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+            height: 1px;
+            opacity: 0.3;
+        }
+
+        .geo-circle {
+            position: absolute;
+            border: 1px solid var(--gold-primary);
+            border-radius: 50%;
+            opacity: 0.15;
+        }
+
+        /* ===== Hero Section ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 24px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--border-gold);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--gold-light);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero-badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-title .gradient-text {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--purple-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 48px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        /* ===== Buttons ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+            color: #0a0a0f;
+            box-shadow:
+                0 4px 20px rgba(212, 175, 55, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 8px 40px rgba(212, 175, 55, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--gold-primary);
+        }
+
+        /* ===== Stats Section ===== */
+        .stats {
+            position: relative;
+            z-index: 2;
+            padding: 80px 24px;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 48px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item {
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 8px;
+        }
+
+        /* ===== Section Common ===== */
+        .section {
+            position: relative;
+            z-index: 2;
+            padding: 120px 24px;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 64px;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* ===== Comparison Section ===== */
+        .comparison {
+            background: var(--bg-primary);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .plan-card {
+            position: relative;
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 40px 32px;
+            border: 1px solid var(--border-subtle);
+            transition: all 0.4s ease;
+        }
+
+        .plan-card.free {
+            opacity: 0.85;
+        }
+
+        .plan-card.premium {
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border-color: var(--gold-primary);
+            box-shadow:
+                0 0 60px rgba(212, 175, 55, 0.1),
+                inset 0 1px 0 rgba(212, 175, 55, 0.2);
+        }
+
+        .plan-card.premium::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            background: linear-gradient(135deg, var(--gold-primary), var(--purple-primary), var(--gold-primary));
+            border-radius: 17px;
+            z-index: -1;
+            opacity: 0.5;
+            animation: borderGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: -12px;
+            right: 24px;
+            padding: 6px 16px;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            color: #0a0a0f;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-radius: 100px;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .plan-price .currency {
+            font-size: 1rem;
+            vertical-align: super;
+        }
+
+        .plan-price .period {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .plan-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-subtle);
+            font-size: 14px;
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .feature-icon.check {
+            color: #22c55e;
+        }
+
+        .feature-icon.cross {
+            color: #ef4444;
+        }
+
+        .feature-icon.limited {
+            color: #f59e0b;
+        }
+
+        .new-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px 8px;
+            background: linear-gradient(135deg, var(--purple-primary), var(--purple-dark));
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+            margin-left: auto;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* ===== New Features Section ===== */
+        .new-features {
+            background: var(--bg-secondary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            position: relative;
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid var(--border-subtle);
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold-primary), var(--purple-primary));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-gold);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card.highlight {
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(212, 175, 55, 0.08) 100%);
+            border-color: var(--border-gold);
+        }
+
+        .feature-card.highlight::before {
+            opacity: 1;
+        }
+
+        .feature-icon-wrapper {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(139, 92, 246, 0.2));
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon-wrapper svg {
+            width: 28px;
+            height: 28px;
+            color: var(--gold-primary);
+        }
+
+        .feature-card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .feature-card-desc {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* ===== Detail Table Section ===== */
+        .detail-table-section {
+            background: var(--bg-primary);
+        }
+
+        .table-container {
+            max-width: 900px;
+            margin: 0 auto;
+            overflow-x: auto;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 20px 24px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .comparison-table th {
+            background: var(--bg-secondary);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .comparison-table th:nth-child(3) {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(139, 92, 246, 0.1));
+            color: var(--gold-light);
+        }
+
+        .comparison-table td {
+            font-size: 14px;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 500;
+        }
+
+        .comparison-table td:nth-child(3) {
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .table-check {
+            color: #22c55e;
+            font-weight: 700;
+        }
+
+        .table-cross {
+            color: #ef4444;
+        }
+
+        .table-limited {
+            color: #f59e0b;
+            font-size: 12px;
+        }
+
+        /* ===== Pricing Section ===== */
+        .pricing {
+            background: var(--bg-secondary);
+            text-align: center;
+        }
+
+        .pricing-card {
+            max-width: 500px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(212, 175, 55, 0.1) 100%);
+            border-radius: 24px;
+            padding: 48px 40px;
+            border: 2px solid var(--gold-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-primary), var(--purple-primary), var(--gold-primary));
+        }
+
+        .pricing-label {
+            font-size: 14px;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+
+        .pricing-amount {
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .pricing-amount .yen {
+            font-size: 2rem;
+            vertical-align: super;
+        }
+
+        .pricing-period {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .pricing-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .benefit-tag {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 100px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .benefit-tag svg {
+            width: 16px;
+            height: 16px;
+            color: #22c55e;
+        }
+
+        /* ===== FAQ Section ===== */
+        .faq {
+            background: var(--bg-primary);
+        }
+
+        .faq-list {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            border: 1px solid var(--border-subtle);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--border-gold);
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--gold-light);
+        }
+
+        .faq-question svg {
+            width: 20px;
+            height: 20px;
+            color: var(--text-muted);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question svg {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer-content {
+            padding: 0 24px 24px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* ===== Screenshots Section ===== */
+        .screenshots {
+            background: var(--bg-primary);
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .screenshots-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .screenshot-card {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease;
+        }
+
+        .screenshot-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .screenshot-header {
+            background: #1f2937;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .screenshot-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .screenshot-dot.red { background: #ef4444; }
+        .screenshot-dot.yellow { background: #eab308; }
+        .screenshot-dot.green { background: #22c55e; }
+
+        .screenshot-title {
+            margin-left: 12px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .screenshot-body {
+            background: #f3f4f6;
+            padding: 24px;
+        }
+
+        .screenshot-content {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .screenshot-content h4 {
+            color: #1f2937;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        /* ===== Video Section ===== */
+        .video-section {
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto 48px;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            background: #000;
+        }
+
+        .youtube-lite {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+        }
+
+        .youtube-lite img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .youtube-lite .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            transition: background 0.3s ease;
+        }
+
+        .youtube-lite:hover .overlay {
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        .youtube-lite .play-btn {
+            position: relative;
+            z-index: 2;
+            width: 80px;
+            height: 80px;
+            background: #ff0000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
+        }
+
+        .youtube-lite:hover .play-btn {
+            transform: scale(1.1);
+        }
+
+        .youtube-lite .play-btn svg {
+            width: 32px;
+            height: 32px;
+            color: white;
+            margin-left: 4px;
+        }
+
+        .video-features {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .video-features h3 {
+            text-align: center;
+            font-size: 1.25rem;
+            margin-bottom: 24px;
+        }
+
+        .video-features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .video-features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .video-feature-item {
+            text-align: center;
+        }
+
+        .video-feature-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 16px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(139, 92, 246, 0.2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-feature-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--gold-primary);
+        }
+
+        .video-feature-item h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .video-feature-item p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ===== Two Plans Pricing Section ===== */
+        .two-plans {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(212, 175, 55, 0.05) 100%);
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .price-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 40px 32px;
+            border: 2px solid var(--border-subtle);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .price-card:hover {
+            border-color: var(--border-gold);
+            transform: translateY(-4px);
+        }
+
+        .price-card.popular {
+            border-color: var(--purple-primary);
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(139, 92, 246, 0.15) 100%);
+        }
+
+        .price-card.popular::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--purple-primary), var(--gold-primary));
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -14px;
+            right: 24px;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .price-card-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .price-card-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .price-card-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .price-display {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .price-original {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-bottom: 4px;
+        }
+
+        .price-current {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .price-current .currency {
+            font-size: 1.5rem;
+            vertical-align: super;
+        }
+
+        .price-current .period {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .price-card.onetime .price-current {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .price-card.popular .price-current {
+            background: linear-gradient(135deg, var(--purple-primary), #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .coupon-box {
+            background: linear-gradient(135deg, var(--purple-primary), var(--purple-dark));
+            color: white;
+            padding: 12px 16px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .coupon-box code {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: 700;
+        }
+
+        .first-month-free {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #1f2937;
+            padding: 12px 16px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .price-features {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .price-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .price-features li svg {
+            width: 18px;
+            height: 18px;
+            color: #22c55e;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .btn-blue {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-blue:hover {
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-purple {
+            background: linear-gradient(135deg, var(--purple-primary), #ec4899);
+            color: white;
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-purple:hover {
+            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* ===== Results Section ===== */
+        .results {
+            background: var(--bg-secondary);
+        }
+
+        .results-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            max-width: 1000px;
+            margin: 0 auto;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .results-header {
+            background: linear-gradient(135deg, var(--gold-primary), var(--purple-primary));
+            padding: 4px;
+        }
+
+        .results-header-inner {
+            background: var(--bg-card);
+            padding: 32px;
+        }
+
+        .results-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .results-image {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 24px;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .results-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            padding: 24px;
+            border-radius: 12px;
+            margin: 32px 0;
+        }
+
+        @media (max-width: 768px) {
+            .results-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .result-stat {
+            text-align: center;
+        }
+
+        .result-stat-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .result-stat-label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .result-stat-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .result-stat.highlight .result-stat-label {
+            color: var(--gold-primary);
+        }
+
+        .result-stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .result-stat.highlight .result-stat-value {
+            background: linear-gradient(135deg, var(--gold-light), var(--purple-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .results-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        @media (max-width: 768px) {
+            .results-images-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .results-images-grid img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .results-images-grid .image-caption {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 12px;
+        }
+
+        /* ===== Why Results Section ===== */
+        .why-results {
+            background: var(--bg-secondary);
+            padding: 80px 24px;
+            border-top: 1px solid var(--border-gold);
+            border-bottom: 1px solid var(--border-gold);
+        }
+
+        .why-results-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .why-results h2 {
+            text-align: center;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 48px;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        @media (max-width: 768px) {
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .why-item {
+            text-align: center;
+        }
+
+        .why-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(139, 92, 246, 0.2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 2rem;
+            border: 1px solid var(--border-gold);
+        }
+
+        .why-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--gold-light);
+        }
+
+        .why-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ===== Story Section ===== */
+        .story {
+            background: var(--bg-primary);
+        }
+
+        .story-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 48px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        @media (max-width: 768px) {
+            .story-card {
+                padding: 32px 24px;
+            }
+        }
+
+        .story-card p {
+            font-size: 1rem;
+            line-height: 2;
+            margin-bottom: 24px;
+            color: var(--text-secondary);
+        }
+
+        .story-card p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .story-card strong {
+            color: var(--text-primary);
+        }
+
+        .story-card .highlight-text {
+            color: var(--purple-primary);
+            font-weight: 600;
+        }
+
+        .story-box {
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .story-box h4 {
+            color: #60a5fa;
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+
+        .story-box ul {
+            list-style: none;
+            font-size: 14px;
+        }
+
+        .story-box ul li {
+            padding: 4px 0;
+        }
+
+        .story-ending {
+            text-align: center;
+            font-size: 1.25rem !important;
+            font-weight: 600;
+            color: var(--purple-primary) !important;
+            margin-top: 32px !important;
+        }
+
+        /* ===== Final CTA Section ===== */
+        .final-cta {
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold-primary));
+            text-align: center;
+            padding: 120px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 30% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+        }
+
+        .final-cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .final-cta-title {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .final-cta-desc {
+            opacity: 0.95;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--bg-primary);
+            font-weight: 700;
+        }
+
+        .btn-white:hover {
+            background: #f8f8f8;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-white {
+            background: transparent;
+            color: var(--bg-primary);
+            border: 2px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-outline-white:hover {
+            background: rgba(0, 0, 0, 0.1);
+            border-color: var(--bg-primary);
+        }
+
+        .trust-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 13px;
+        }
+
+        .trust-badge svg {
+            width: 18px;
+            height: 18px;
+            color: white;
+        }
+
+        /* ===== Animations ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== Scroll Animations ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .section {
+                padding: 80px 20px;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .plan-card {
+                padding: 32px 24px;
+            }
+
+            .pricing-card {
+                padding: 32px 24px;
+            }
+
+            .pricing-amount {
+                font-size: 3rem;
+            }
+
+            .stats-grid {
+                gap: 32px;
+            }
+
+            .stat-value {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particles Background -->
+    <div class="particles-container" id="particles"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i data-feather="star"></i>
+                Premium Upgrade
+            </div>
+            <h1 class="hero-title display-font">
+                無料版をお使いの方へ<br>
+                <span class="gradient-text">プレミアム体験</span>を
+            </h1>
+            <p class="hero-subtitle">
+                自動リプライ・自動フォローなど、強力な新機能であなたのXマーケティングを次のレベルへ引き上げます
+            </p>
+            <div class="hero-cta">
+                <a href="#pricing" class="btn btn-primary">
+                    <i data-feather="zap"></i>
+                    今すぐアップグレード
+                </a>
+                <a href="#comparison" class="btn btn-secondary">
+                    機能を比較する
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item" style="animation-delay: 0.1s">
+                <div class="stat-value">400+</div>
+                <div class="stat-label">日次投稿数</div>
+            </div>
+            <div class="stat-item" style="animation-delay: 0.2s">
+                <div class="stat-value">30秒</div>
+                <div class="stat-label">セットアップ時間</div>
+            </div>
+            <div class="stat-item" style="animation-delay: 0.3s">
+                <div class="stat-value">¥0</div>
+                <div class="stat-label">API利用料</div>
+            </div>
+            <div class="stat-item" style="animation-delay: 0.4s">
+                <div class="stat-value">無制限</div>
+                <div class="stat-label">アカウント数</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="section comparison" id="comparison">
+        <div class="section-header reveal">
+            <span class="section-label">Compare Plans</span>
+            <h2 class="section-title display-font">無料版 vs プレミアム版</h2>
+            <p class="section-desc">プレミアム版なら、すべての機能が制限なく使い放題</p>
+        </div>
+
+        <div class="comparison-grid">
+            <!-- Free Plan -->
+            <div class="plan-card free reveal">
+                <h3 class="plan-name">無料版</h3>
+                <div class="plan-price">
+                    <span class="currency">¥</span>0
+                </div>
+                <ul class="plan-features">
+                    <li>
+                        <i data-feather="check" class="feature-icon check"></i>
+                        基本的な投稿管理
+                    </li>
+                    <li>
+                        <i data-feather="alert-circle" class="feature-icon limited"></i>
+                        アカウント数制限あり
+                    </li>
+                    <li>
+                        <i data-feather="alert-circle" class="feature-icon limited"></i>
+                        予約投稿（制限あり）
+                    </li>
+                    <li>
+                        <i data-feather="x" class="feature-icon cross"></i>
+                        自動リプライ
+                    </li>
+                    <li>
+                        <i data-feather="x" class="feature-icon cross"></i>
+                        自動フォロー
+                    </li>
+                    <li>
+                        <i data-feather="x" class="feature-icon cross"></i>
+                        ランダム投稿
+                    </li>
+                    <li>
+                        <i data-feather="x" class="feature-icon cross"></i>
+                        優先サポート
+                    </li>
+                </ul>
+                <button class="btn btn-secondary" style="width: 100%">
+                    現在のプラン
+                </button>
+            </div>
+
+            <!-- Premium Plan -->
+            <div class="plan-card premium reveal" style="animation-delay: 0.2s">
+                <div class="plan-badge">おすすめ</div>
+                <h3 class="plan-name">プレミアム版</h3>
+                <div class="plan-price">
+                    <span class="currency">¥</span>29,800
+                    <span class="period">/ 買い切り</span>
+                </div>
+                <ul class="plan-features">
+                    <li>
+                        <i data-feather="check" class="feature-icon check"></i>
+                        すべての投稿管理機能
+                    </li>
+                    <li>
+                        <i data-feather="check" class="feature-icon check"></i>
+                        アカウント数無制限
+                    </li>
+                    <li>
+                        <i data-feather="check" class="feature-icon check"></i>
+                        予約投稿（無制限）
+                    </li>
+                    <li>
+                        <i data-feather="check" class="feature-icon check"></i>
+                        自動リプライ
+                        <span class="new-badge">NEW</span>
+                    </li>
+                    <li>
+                        <i data-feather="check" class="feature-icon check"></i>
+                        自動フォロー
+                        <span class="new-badge">NEW</span>
+                    </li>
+                    <li>
+                        <i data-feather="check" class="feature-icon check"></i>
+                        ランダム投稿
+                    </li>
+                    <li>
+                        <i data-feather="check" class="feature-icon check"></i>
+                        優先サポート
+                    </li>
+                </ul>
+                <a href="#pricing" class="btn btn-primary" style="width: 100%">
+                    <i data-feather="zap"></i>
+                    アップグレード
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Features Section -->
+    <section class="section new-features" id="features">
+        <div class="section-header reveal">
+            <span class="section-label">New Features</span>
+            <h2 class="section-title display-font">プレミアム限定の新機能</h2>
+            <p class="section-desc">自動化をさらに強力に。手作業からの解放を</p>
+        </div>
+
+        <div class="features-grid">
+            <!-- Auto Reply -->
+            <div class="feature-card highlight reveal">
+                <div class="feature-icon-wrapper">
+                    <i data-feather="message-circle"></i>
+                </div>
+                <h3 class="feature-card-title">
+                    自動リプライ
+                    <span class="new-badge">NEW</span>
+                </h3>
+                <p class="feature-card-desc">
+                    バズツイートやターゲットキーワードを含む投稿に自動でリプライ。露出を最大化し、フォロワー獲得のチャンスを逃しません。キーワード設定、タイミング制御も自由自在。
+                </p>
+            </div>
+
+            <!-- Auto Follow -->
+            <div class="feature-card highlight reveal" style="animation-delay: 0.1s">
+                <div class="feature-icon-wrapper">
+                    <i data-feather="user-plus"></i>
+                </div>
+                <h3 class="feature-card-title">
+                    自動フォロー
+                    <span class="new-badge">NEW</span>
+                </h3>
+                <p class="feature-card-desc">
+                    ターゲットユーザーを自動でフォロー。フィルター設定でジャンルを絞り込み、日次制限で安全運用。フォロワー増加を完全自動化できます。
+                </p>
+            </div>
+
+            <!-- Bulk Posting -->
+            <div class="feature-card reveal" style="animation-delay: 0.2s">
+                <div class="feature-icon-wrapper">
+                    <i data-feather="layers"></i>
+                </div>
+                <h3 class="feature-card-title">大量投稿</h3>
+                <p class="feature-card-desc">
+                    1日400回以上の投稿に対応。API制限を気にせず、思う存分コンテンツを発信できます。
+                </p>
+            </div>
+
+            <!-- Multi Account -->
+            <div class="feature-card reveal" style="animation-delay: 0.3s">
+                <div class="feature-icon-wrapper">
+                    <i data-feather="users"></i>
+                </div>
+                <h3 class="feature-card-title">複数アカウント管理</h3>
+                <p class="feature-card-desc">
+                    アカウント数の制限なし。一つの画面ですべてのアカウントを一元管理できます。
+                </p>
+            </div>
+
+            <!-- Scheduled Posts -->
+            <div class="feature-card reveal" style="animation-delay: 0.4s">
+                <div class="feature-icon-wrapper">
+                    <i data-feather="clock"></i>
+                </div>
+                <h3 class="feature-card-title">予約投稿</h3>
+                <p class="feature-card-desc">
+                    時間を指定して自動投稿。最適なタイミングで投稿を届けられます。
+                </p>
+            </div>
+
+            <!-- Random Posts -->
+            <div class="feature-card reveal" style="animation-delay: 0.5s">
+                <div class="feature-icon-wrapper">
+                    <i data-feather="shuffle"></i>
+                </div>
+                <h3 class="feature-card-title">ランダム投稿</h3>
+                <p class="feature-card-desc">
+                    プールからランダムに選んで自動投稿。自然な投稿パターンを実現します。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detail Table Section -->
+    <section class="section detail-table-section">
+        <div class="section-header reveal">
+            <span class="section-label">Detailed Comparison</span>
+            <h2 class="section-title display-font">機能比較表</h2>
+        </div>
+
+        <div class="table-container reveal">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>機能</th>
+                        <th>無料版</th>
+                        <th>プレミアム版</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>基本投稿</td>
+                        <td class="table-check">✓</td>
+                        <td class="table-check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>画像添付投稿</td>
+                        <td class="table-check">✓</td>
+                        <td class="table-check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>アカウント数</td>
+                        <td class="table-limited">制限あり</td>
+                        <td class="table-check">無制限</td>
+                    </tr>
+                    <tr>
+                        <td>予約投稿</td>
+                        <td class="table-limited">制限あり</td>
+                        <td class="table-check">無制限</td>
+                    </tr>
+                    <tr>
+                        <td>定期投稿</td>
+                        <td class="table-limited">制限あり</td>
+                        <td class="table-check">無制限</td>
+                    </tr>
+                    <tr>
+                        <td>自動リプライ <span class="new-badge" style="margin-left: 8px;">NEW</span></td>
+                        <td class="table-cross">✕</td>
+                        <td class="table-check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>自動フォロー <span class="new-badge" style="margin-left: 8px;">NEW</span></td>
+                        <td class="table-cross">✕</td>
+                        <td class="table-check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>ランダム投稿</td>
+                        <td class="table-cross">✕</td>
+                        <td class="table-check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>投稿キュー管理</td>
+                        <td class="table-cross">✕</td>
+                        <td class="table-check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>優先サポート</td>
+                        <td class="table-cross">✕</td>
+                        <td class="table-check">✓</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="section screenshots" id="screenshots">
+        <div class="section-header reveal">
+            <span class="section-label">Screenshots</span>
+            <h2 class="section-title display-font">実際の画面をご覧ください</h2>
+            <p class="section-desc">洗練されたUIで、直感的に操作できます</p>
+        </div>
+
+        <div class="screenshots-grid">
+            <!-- Screenshot 1: Queue Management -->
+            <div class="screenshot-card reveal">
+                <div class="screenshot-header">
+                    <span class="screenshot-dot red"></span>
+                    <span class="screenshot-dot yellow"></span>
+                    <span class="screenshot-dot green"></span>
+                    <span class="screenshot-title">投稿キュー管理</span>
+                </div>
+                <div class="screenshot-body">
+                    <div class="screenshot-content">
+                        <h4>📋 投稿キュー管理</h4>
+                        <div style="background: #f9fafb; border-radius: 6px; padding: 12px; margin-bottom: 10px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                <span style="font-size: 12px; color: #6b7280;">待機中: 25件</span>
+                                <span style="font-size: 11px; background: #22c55e; color: white; padding: 2px 8px; border-radius: 10px;">アクティブ</span>
+                            </div>
+                            <div style="font-size: 11px; color: #374151; border-left: 3px solid #8b5cf6; padding-left: 8px;">次回投稿: 14:30 - AIで成功する秘訣とは...</div>
+                        </div>
+                        <div style="display: flex; gap: 8px;">
+                            <button style="flex: 1; background: #8b5cf6; color: white; border: none; padding: 6px; border-radius: 4px; font-size: 11px;">一括追加</button>
+                            <button style="flex: 1; background: #f3f4f6; color: #374151; border: none; padding: 6px; border-radius: 4px; font-size: 11px;">並べ替え</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screenshot 2: AI Mode -->
+            <div class="screenshot-card reveal" style="animation-delay: 0.1s">
+                <div class="screenshot-header">
+                    <span class="screenshot-dot red"></span>
+                    <span class="screenshot-dot yellow"></span>
+                    <span class="screenshot-dot green"></span>
+                    <span class="screenshot-title">AIモード</span>
+                </div>
+                <div class="screenshot-body">
+                    <div class="screenshot-content">
+                        <h4>🤖 AIツイート生成</h4>
+                        <div style="background: linear-gradient(135deg, #f0f9ff, #e0e7ff); border-radius: 6px; padding: 12px; margin-bottom: 10px;">
+                            <div style="font-size: 11px; color: #6366f1; margin-bottom: 6px;">GPT-4o Powered</div>
+                            <div style="font-size: 12px; color: #1e293b; line-height: 1.5;">トピック: ビジネス成功法則<br>トーン: プロフェッショナル</div>
+                        </div>
+                        <button style="width: 100%; background: linear-gradient(135deg, #8b5cf6, #ec4899); color: white; border: none; padding: 8px; border-radius: 6px; font-size: 12px; font-weight: 600;">✨ AIで生成</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screenshot 3: Image Pool -->
+            <div class="screenshot-card reveal" style="animation-delay: 0.2s">
+                <div class="screenshot-header">
+                    <span class="screenshot-dot red"></span>
+                    <span class="screenshot-dot yellow"></span>
+                    <span class="screenshot-dot green"></span>
+                    <span class="screenshot-title">画像プール</span>
+                </div>
+                <div class="screenshot-body">
+                    <div class="screenshot-content">
+                        <h4>🖼️ 画像プール管理</h4>
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 10px;">
+                            <div style="aspect-ratio: 1; background: linear-gradient(135deg, #fcd34d, #f97316); border-radius: 4px;"></div>
+                            <div style="aspect-ratio: 1; background: linear-gradient(135deg, #a78bfa, #8b5cf6); border-radius: 4px;"></div>
+                            <div style="aspect-ratio: 1; background: linear-gradient(135deg, #34d399, #059669); border-radius: 4px;"></div>
+                            <div style="aspect-ratio: 1; background: linear-gradient(135deg, #60a5fa, #3b82f6); border-radius: 4px;"></div>
+                            <div style="aspect-ratio: 1; background: linear-gradient(135deg, #f472b6, #ec4899); border-radius: 4px;"></div>
+                            <div style="aspect-ratio: 1; background: #f3f4f6; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 16px; color: #9ca3af;">+</div>
+                        </div>
+                        <div style="font-size: 11px; color: #6b7280; text-align: center;">登録画像: 48枚</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screenshot 4: Random Post Settings -->
+            <div class="screenshot-card reveal" style="animation-delay: 0.3s">
+                <div class="screenshot-header">
+                    <span class="screenshot-dot red"></span>
+                    <span class="screenshot-dot yellow"></span>
+                    <span class="screenshot-dot green"></span>
+                    <span class="screenshot-title">ランダム投稿設定</span>
+                </div>
+                <div class="screenshot-body">
+                    <div class="screenshot-content">
+                        <h4>🎲 ランダム投稿</h4>
+                        <div style="margin-bottom: 10px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                <span style="font-size: 12px; color: #374151;">投稿間隔</span>
+                                <span style="font-size: 12px; color: #8b5cf6; font-weight: 600;">30-60分</span>
+                            </div>
+                            <div style="height: 6px; background: #e5e7eb; border-radius: 3px;">
+                                <div style="height: 100%; width: 60%; background: linear-gradient(90deg, #8b5cf6, #ec4899); border-radius: 3px;"></div>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 8px;">
+                            <div style="flex: 1; background: #f0fdf4; border-radius: 4px; padding: 8px; text-align: center;">
+                                <div style="font-size: 10px; color: #15803d;">本日</div>
+                                <div style="font-size: 14px; color: #166534; font-weight: 700;">12投稿</div>
+                            </div>
+                            <div style="flex: 1; background: #f0f9ff; border-radius: 4px; padding: 8px; text-align: center;">
+                                <div style="font-size: 10px; color: #0369a1;">次回</div>
+                                <div style="font-size: 11px; color: #0c4a6e; font-weight: 600;">15:42</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="section video-section" id="video">
+        <div class="section-header reveal">
+            <span class="section-label">Video Demo</span>
+            <h2 class="section-title display-font">実際の操作を動画でご覧ください</h2>
+            <p class="section-desc">3分で分かる主要機能のデモンストレーション</p>
+        </div>
+
+        <div class="video-container reveal">
+            <div class="video-wrapper">
+                <button class="youtube-lite" data-video-id="xwOo6I2L2A8" onclick="loadYouTube(this)">
+                    <img src="https://img.youtube.com/vi/xwOo6I2L2A8/hqdefault.jpg" alt="XToolsPro2 デモ動画">
+                    <div class="overlay"></div>
+                    <div class="play-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div class="video-features reveal">
+            <h3>動画で紹介している機能</h3>
+            <div class="video-features-grid">
+                <div class="video-feature-item">
+                    <div class="video-feature-icon">
+                        <i data-feather="shuffle"></i>
+                    </div>
+                    <h4>ランダム投稿</h4>
+                    <p>プールから自動で選んで投稿。24時間自動運用を実現</p>
+                </div>
+                <div class="video-feature-item">
+                    <div class="video-feature-icon">
+                        <i data-feather="cpu"></i>
+                    </div>
+                    <h4>AIツイート生成</h4>
+                    <p>GPT-4oによる高品質なツイートを自動生成</p>
+                </div>
+                <div class="video-feature-item">
+                    <div class="video-feature-icon">
+                        <i data-feather="file-text"></i>
+                    </div>
+                    <h4>スプレッドシート取込</h4>
+                    <p>Excelやスプレッドシートから一括インポート</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Two Plans Pricing Section -->
+    <section class="section two-plans" id="pricing">
+        <div class="section-header reveal">
+            <span class="section-label">Pricing Plans</span>
+            <h2 class="section-title display-font">選べる2つの料金プラン</h2>
+            <p class="section-desc">あなたに合ったプランをお選びください</p>
+        </div>
+
+        <div class="plans-grid">
+            <!-- One-time Purchase Plan -->
+            <div class="price-card onetime reveal">
+                <div class="price-card-header">
+                    <h3 class="price-card-name">買い切りプラン</h3>
+                    <p class="price-card-desc">一度の購入で永久に使える</p>
+                </div>
+                <div class="price-display">
+                    <div class="price-original">¥29,800（税込）</div>
+                    <div class="price-current">
+                        <span class="currency">¥</span>6,980
+                    </div>
+                    <div style="color: #ef4444; font-weight: 600; font-size: 14px; margin-top: 4px;">¥22,820 OFF!</div>
+                </div>
+                <div class="coupon-box">
+                    🎁 クーポンコード: <code>Iw7RR</code>
+                </div>
+                <ul class="price-features">
+                    <li><i data-feather="check"></i>永続ライセンス</li>
+                    <li><i data-feather="check"></i>全機能利用可能</li>
+                    <li><i data-feather="check"></i>メジャーアップデート無料</li>
+                    <li><i data-feather="check"></i>メールサポート</li>
+                    <li><i data-feather="check"></i>30日間返金保証</li>
+                </ul>
+                <a href="https://page.theapps.jp/charge/join/U8hv3G40M25l11n2" class="btn btn-blue" style="width: 100%; justify-content: center;">
+                    <i data-feather="shopping-cart"></i>
+                    買い切り版を購入
+                </a>
+            </div>
+
+            <!-- Subscription Plan -->
+            <div class="price-card popular reveal" style="animation-delay: 0.1s">
+                <div class="popular-badge">人気 No.1</div>
+                <div class="price-card-header">
+                    <h3 class="price-card-name">サブスクプラン</h3>
+                    <p class="price-card-desc">いつでも解約OK・初月無料</p>
+                </div>
+                <div class="price-display">
+                    <div class="price-original">¥1,980/月</div>
+                    <div class="price-current">
+                        <span class="currency">¥</span>980<span class="period">/月</span>
+                    </div>
+                    <div style="color: var(--purple-primary); font-weight: 600; font-size: 14px; margin-top: 4px;">永続1,000円OFF!</div>
+                </div>
+                <div class="first-month-free">
+                    🎉 初月完全無料！今すぐお試し
+                </div>
+                <div class="coupon-box">
+                    🎁 クーポンコード: <code>TANTv</code>
+                </div>
+                <ul class="price-features">
+                    <li><i data-feather="check"></i>初月完全無料</li>
+                    <li><i data-feather="check"></i>いつでも解約可能</li>
+                    <li><i data-feather="check"></i>全機能利用可能</li>
+                    <li><i data-feather="check"></i>最新機能を即時利用</li>
+                    <li><i data-feather="check"></i>優先サポート</li>
+                </ul>
+                <a href="https://page.theapps.jp/paid/join/J8hv3G40M25l66v1" class="btn btn-purple" style="width: 100%; justify-content: center;">
+                    <i data-feather="zap"></i>
+                    サブスク版を始める
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="section results" id="results">
+        <div class="section-header reveal">
+            <span class="section-label">Real Results</span>
+            <h2 class="section-title display-font">驚きの実績</h2>
+            <p class="section-desc">フォロワー30人程度のサブ垢で、初日からこの成果</p>
+        </div>
+
+        <div class="results-card reveal">
+            <div class="results-header">
+                <div class="results-header-inner">
+                    <h3 class="results-title">🔥 フォロワー30人のサブ垢 × XToolsPro2 = 初日で成約</h3>
+
+                    <div class="results-stats">
+                        <div class="result-stat">
+                            <div class="result-stat-icon">❤️</div>
+                            <div class="result-stat-value">1</div>
+                            <div class="result-stat-label">いいね獲得</div>
+                        </div>
+                        <div class="result-stat">
+                            <div class="result-stat-icon">👤</div>
+                            <div class="result-stat-value">1</div>
+                            <div class="result-stat-label">フォロー獲得</div>
+                        </div>
+                        <div class="result-stat">
+                            <div class="result-stat-icon">📧</div>
+                            <div class="result-stat-value">1</div>
+                            <div class="result-stat-label">問い合わせ獲得</div>
+                        </div>
+                        <div class="result-stat highlight">
+                            <div class="result-stat-icon">🎯</div>
+                            <div class="result-stat-value">¥5,000</div>
+                            <div class="result-stat-label">成約達成</div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; padding: 20px; background: rgba(139, 92, 246, 0.1); border-radius: 12px; margin-top: 24px;">
+                        <div style="font-size: 14px; color: var(--text-secondary); margin-bottom: 8px;">その後も追加売上発生</div>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--purple-primary);">+2件の追加成約</div>
+                    </div>
+
+                    <div class="results-images-grid">
+                        <div>
+                            <img src="https://assets.st-note.com/img/1757495474-PkS4BO0R7mXDZ8Nn9KGATWug.png" alt="フォロワー30人のサブ垢での運用">
+                            <p class="image-caption">フォロワー30人のサブ垢で運用開始</p>
+                        </div>
+                        <div>
+                            <img src="https://assets.st-note.com/img/1757495912-aTorB0z2S4CZe1sKJucqQVnD.png" alt="いいね・フォロー・問い合わせ">
+                            <p class="image-caption">いいね→フォロー→問い合わせの流れ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Results Section -->
+    <section class="why-results">
+        <div class="why-results-inner">
+            <h2 class="display-font">なぜ1日で成果が出るのか？</h2>
+            <div class="why-grid">
+                <div class="why-item">
+                    <div class="why-icon">⚡</div>
+                    <h4>即座に稼働開始</h4>
+                    <p>設定は最短5分。インストールしたその日から自動投稿が始まります</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">🎯</div>
+                    <h4>最適なタイミング</h4>
+                    <p>エンゲージメントが高い時間帯を狙って自動投稿。見てもらえる投稿を実現</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">🤖</div>
+                    <h4>AIの高品質コンテンツ</h4>
+                    <p>GPT-4oが生成する自然で魅力的なツイートで反応率アップ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq" id="faq">
+        <div class="section-header reveal">
+            <span class="section-label">FAQ</span>
+            <h2 class="section-title display-font">よくある質問</h2>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-item reveal">
+                <button class="faq-question" type="button">
+                    無料版との違いは何ですか？
+                    <i data-feather="chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        無料版では定期投稿と予約投稿のみご利用いただけます。有料版では、ランダム投稿機能、AIモード、画像プール、スプレッドシート取込など、高度な自動化機能が全て利用可能になります。
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item reveal" style="animation-delay: 0.1s">
+                <button class="faq-question" type="button">
+                    買い切りプランとサブスクプランの違いは？
+                    <i data-feather="chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        買い切りプランは一度のお支払いで永続的にご利用いただけます。サブスクプランは月額制ですが、常に最新の機能をご利用いただけ、優先サポートも受けられます。
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item reveal" style="animation-delay: 0.2s">
+                <button class="faq-question" type="button">
+                    AIモードでの投稿生成に制限はありますか？
+                    <i data-feather="chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        有料版では制限なくAIモードをご利用いただけます。ただし、OpenAIのAPIキーは別途ご用意いただく必要があります。
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item reveal" style="animation-delay: 0.3s">
+                <button class="faq-question" type="button">
+                    複数のPCで利用できますか？
+                    <i data-feather="chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        ライセンスは1台のPCでのご利用となります。複数PCでのご利用をご希望の場合は、台数分のライセンスが必要です。
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item reveal" style="animation-delay: 0.4s">
+                <button class="faq-question" type="button">
+                    無料版からのデータ移行はできますか？
+                    <i data-feather="chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        はい、無料版で設定したアカウント情報や投稿データはすべてそのまま引き継がれます。アップグレード後、追加の設定なしにすぐにプレミアム機能をご利用いただけます。
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item reveal" style="animation-delay: 0.5s">
+                <button class="faq-question" type="button">
+                    支払い方法は何がありますか？
+                    <i data-feather="chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        クレジットカード、銀行振込、PayPalに対応しております。お支払い方法の詳細は購入ページでご確認いただけます。
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item reveal" style="animation-delay: 0.6s">
+                <button class="faq-question" type="button">
+                    返金保証はありますか？
+                    <i data-feather="chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        はい、購入後30日間の返金保証をご用意しています。万が一ご満足いただけない場合は、全額返金いたします。
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item reveal" style="animation-delay: 0.7s">
+                <button class="faq-question" type="button">
+                    アップデートは有料ですか？
+                    <i data-feather="chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        いいえ、一度ご購入いただければ、今後のアップデートはすべて無料でご利用いただけます。新機能の追加やバグ修正も含まれます。
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item reveal" style="animation-delay: 0.8s">
+                <button class="faq-question" type="button">
+                    サポートはどのように受けられますか？
+                    <i data-feather="chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        プレミアム版をご購入いただいたお客様には、優先サポートをご提供しています。メールまたは専用フォームからお問い合わせいただけます。通常24時間以内に返信いたします。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="section story" id="story">
+        <div class="section-header reveal">
+            <span class="section-label">Developer's Note</span>
+            <h2 class="section-title display-font">最後に</h2>
+        </div>
+
+        <div class="story-card reveal">
+            <p>
+                ここまでお読みいただきありがとうございます。<br>
+                この機能を導入した経緯をお話しますね。
+            </p>
+
+            <p>
+                成功して会社設立したアフィリエイターのお客さんに、<br>
+                「ランダム投稿機能とAIツイート生成機能」を作ってとお願いされました。
+            </p>
+
+            <div class="story-box">
+                <h4>📋 設定内容</h4>
+                <ul>
+                    <li>📍 投稿頻度：1時間に1回</li>
+                    <li>📝 文章ストック：20個程度（AIで作成）</li>
+                    <li>🔗 全部のツイートの最後にnoteの記事URL（商品ページ）</li>
+                    <li>👤 半年ぐらい放置してたサブアカで実施</li>
+                </ul>
+            </div>
+
+            <p>
+                とりあえず試してみて、放置しました。
+            </p>
+
+            <p>
+                そしたらまさかの、<br>
+                <span class="highlight-text">いいね1件、フォロー1件、問い合わせ1件。</span>
+            </p>
+
+            <p>
+                これだけでも嬉しかったですが、<br>
+                問い合わせがあったので、真摯に対応しました。
+            </p>
+
+            <p>
+                そうしたらご購入いただくことができました<strong>（5000円です）</strong>。<br>
+                正直まぐれかなと思いましたが、そのあとも2件売れています。。と。
+            </p>
+
+            <p>
+                ここまでは、サクセスストーリーですが、<br>
+                もちろんデメリットもありました。
+            </p>
+
+            <p>
+                <strong>1つ目は、サーチバンになりました。</strong><br>
+                検索対象から除外されたので、サブ垢でやった方が良さそうです。<br>
+                （サーチバンになった後に2件売れたり継続してフォロー入ってはいましたが、運がよかっただけかもしれません）
+            </p>
+
+            <p>
+                <strong>2つ目は途中から設定を誤って1分間に1回投稿になってたのですが、</strong><br>
+                ５〜６時間気づかず（60×6=360投稿くらいしてて）、<br>
+                アカウントがロックされました。<br>
+                ロボットではないことを証明する問題をクリアしたら<br>
+                普通に使えるようになりましたが、ちょっと怖かったですね。
+            </p>
+
+            <p>
+                総じて、長くアカウントを活かすなら、<br>
+                <strong>適切な頻度（1時間に1回？）</strong>とかが良いのかもしれません。<br>
+                短命でも良いなら5分に1回とかで良いと思います。
+            </p>
+
+            <p>
+                今は1分間に1回は危ないので選択できないようにしましたが、<br>
+                1分間に1回投稿の勢いは凄まじかったです笑。
+            </p>
+
+            <p>
+                初めのうちは、サブ垢で適切な投稿頻度をテストしながら、<br>
+                利用いただければと思います。
+            </p>
+
+            <p class="story-ending">
+                🚀 それでは自動化ライフをお楽しみください！
+            </p>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="final-cta-content reveal">
+            <h2 class="final-cta-title display-font">
+                今すぐX運用を自動化しましょう
+            </h2>
+            <p class="final-cta-desc">
+                ランダム投稿機能で、あなたのSNS運用が劇的に変わります
+            </p>
+            <div class="cta-buttons">
+                <a href="https://page.theapps.jp/charge/join/U8hv3G40M25l11n2" class="btn btn-white">
+                    <i data-feather="shopping-cart"></i>
+                    買い切り版を購入（¥6,980）
+                </a>
+                <a href="https://page.theapps.jp/paid/join/J8hv3G40M25l66v1" class="btn btn-outline-white">
+                    <i data-feather="zap"></i>
+                    サブスク版（初月無料）
+                </a>
+            </div>
+            <div style="margin-top: 16px;">
+                <a href="https://line.me/ti/g2/G97R3bGERdpqtKc974WpOC3wm0l_MtZ77NQ4fA" style="color: rgba(255,255,255,0.8); font-size: 14px; text-decoration: underline;">
+                    お問い合わせはこちら（LINE）
+                </a>
+            </div>
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <i data-feather="shield"></i>
+                    安全な決済
+                </div>
+                <div class="trust-badge">
+                    <i data-feather="refresh-cw"></i>
+                    30日間返金保証
+                </div>
+                <div class="trust-badge">
+                    <i data-feather="headphones"></i>
+                    優先サポート
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                const size = 2 + Math.random() * 4;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                container.appendChild(particle);
+            }
+        }
+
+        // Scroll reveal animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // YouTube lite loader
+        function loadYouTube(button) {
+            const videoId = button.getAttribute('data-video-id');
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+            iframe.setAttribute('frameborder', '0');
+            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+            iframe.setAttribute('allowfullscreen', '');
+            iframe.style.position = 'absolute';
+            iframe.style.inset = '0';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            button.parentNode.replaceChild(iframe, button);
+        }
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Feather Icons
+            feather.replace();
+
+            // Create particles
+            createParticles();
+
+            // FAQ accordion - attach event listeners after feather icons are replaced
+            document.querySelectorAll('.faq-question').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const faqItem = this.closest('.faq-item');
+                    const isActive = faqItem.classList.contains('active');
+
+                    // Close all FAQ items
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+
+                    // Toggle current item
+                    if (!isActive) {
+                        faqItem.classList.add('active');
+                    }
+                });
+            });
+
+            // Initial reveal check
+            reveal();
+        });
+
+        // Scroll event for reveal animation
+        window.addEventListener('scroll', reveal);
+    </script>
+</body>
+</html>
