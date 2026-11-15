@@ -1,36 +1,7 @@
-# XTP2 NoAPI Free - Landing Page
+# XTP2 NoAPI Free - Landing Page（終了・転送のみ）
 
-XToolsPro2 NoAPI無料版の有料版アップグレード用ランディングページです。
+2026-11-15 に、このサイトの全ページ（`index.html`・`landing.html`・`upgrade_lp_modern.html`・`upgrade_lp_original.html`・`upgrade_lp_v2.html`・`upgrade_premium.html`）を、今の販売ページ https://market.youpapatools.com/xtp3/ への転送に置き換えました。
 
-## 概要
+理由: XToolsPro2 の頃のアップグレード案内で、表示の価格が古く、購入リンクが 2026-10-18 に販売終了した決済ページのままでした。古い版のアプリがこのページを埋め込みで開くことがあるため、ページを消さずに転送にしています。
 
-このページは、XToolsPro2 NoAPIの無料版ユーザーに対して、有料版の機能を紹介し、アップグレードを促すためのランディングページです。
-
-## 主な機能紹介
-
-- **AIモード**: GPT-4oを使用した自動投稿生成
-- **ゆらぎ機能**: 人間らしい自然な投稿パターン
-- **画像プール**: 効率的な画像管理
-- **スプレッドシート取込**: 一括インポート機能
-- **投稿キュー管理**: インライン編集対応
-- **24時間365日稼働**: 完全自動化
-
-## 料金プラン
-
-- **買い切りプラン**: ¥5,980（税込）
-- **サブスクプラン**: ¥980/月（税込）
-
-## URL
-
-https://mitama987.github.io/xtp2n_free_lp/
-
-## 技術スタック
-
-- HTML5
-- TailwindCSS (CDN)
-- Feather Icons
-- Vanilla JavaScript
-
-## デプロイ
-
-GitHub Pagesでホスティングされています。
+元の内容は git の履歴（2026-11-15 より前のコミット）にあります。
